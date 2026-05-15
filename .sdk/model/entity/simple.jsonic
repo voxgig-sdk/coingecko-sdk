@@ -1,0 +1,114 @@
+# Entity: simple
+
+main: kit: entity: simple: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "bitcoin"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "ethereum"
+      req: false
+      type: "`$OBJECT`"
+    }
+  ]
+
+  name: "simple"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: "bitcoin,ethereum"
+                kind: "query"
+                name: "ids"
+                orig: "ids"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "include_24hr_change"
+                orig: "include_24hr_change"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "include_24hr_vol"
+                orig: "include_24hr_vol"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "include_last_updated_at"
+                orig: "include_last_updated_at"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "include_market_cap"
+                orig: "include_market_cap"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "precision"
+                orig: "precision"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "usd,eur"
+                kind: "query"
+                name: "vs_currency"
+                orig: "vs_currency"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/simple/price"
+          parts: [
+            "simple"
+            "price"
+          ]
+          select: {
+            "$action": "price"
+            exist: [
+              "ids"
+              "include_24hr_change"
+              "include_24hr_vol"
+              "include_last_updated_at"
+              "include_market_cap"
+              "precision"
+              "vs_currency"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,26 @@
+{
+  "existing": {
+    "simple": {
+      "SIMPLE00": {
+        "bitcoin": {},
+        "ethereum": {}
+      },
+      "SIMPLE01": {
+        "bitcoin": {},
+        "ethereum": {}
+      },
+      "SIMPLE02": {
+        "bitcoin": {},
+        "ethereum": {}
+      }
+    }
+  },
+  "new": {
+    "simple": {
+      "simple_ref01": {
+        "bitcoin": {},
+        "ethereum": {}
+      }
+    }
+  }
+}

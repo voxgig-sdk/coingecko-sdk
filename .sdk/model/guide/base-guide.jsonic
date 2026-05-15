@@ -1,0 +1,21 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 2
+  metrics: count: path: 2
+  metrics: count: method: 2
+
+  entity: general: {
+    path: "/ping": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: simple: {
+    path: "/simple/price": {
+      action: "price": {}
+      op: load: method: *GET
+    }
+  }
+
+}

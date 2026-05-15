@@ -1,0 +1,22 @@
+{
+  "existing": {
+    "general": {
+      "GENERAL00": {
+        "gecko_say": "sa"
+      },
+      "GENERAL01": {
+        "gecko_say": "s14"
+      },
+      "GENERAL02": {
+        "gecko_say": "s1e"
+      }
+    }
+  },
+  "new": {
+    "general": {
+      "general_ref01": {
+        "gecko_say": "s28"
+      }
+    }
+  }
+}

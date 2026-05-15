@@ -1,0 +1,28 @@
+# BasicGeneralFlow
+
+main: kit: flow: BasicGeneralFlow:
+{
+  entity: "general",
+  kind: "basic",
+  name: "BasicGeneralFlow",
+  step: [
+    {
+      input: {
+        ref: "general_ref01",
+        srcdatavar: "general_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-general_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGeneralFlow"
+}

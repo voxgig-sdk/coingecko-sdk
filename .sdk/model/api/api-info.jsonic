@@ -1,0 +1,25 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "CoinGecko API Support"
+        url: "https://www.coingecko.com/de/api"
+      }
+      description: "Powerful API for cryptocurrency data including real-time prices, market data, NFT base prices, trading volume, trading pairs, metadata, historical data, and more. Trusted by thousands of developers in the industry."
+      servers: [
+        {
+          description: "CoinGecko API v3 Production Server"
+          url: "https://api.coingecko.com/api/v3"
+        }
+      ]
+      termsOfService: "https://www.coingecko.com/en/terms"
+      title: "CoinGecko API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

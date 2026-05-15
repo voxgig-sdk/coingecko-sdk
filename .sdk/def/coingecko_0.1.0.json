@@ -1,0 +1,217 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "CoinGecko API",
+    "description": "Powerful API for cryptocurrency data including real-time prices, market data, NFT base prices, trading volume, trading pairs, metadata, historical data, and more. Trusted by thousands of developers in the industry.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "CoinGecko API Support",
+      "url": "https://www.coingecko.com/de/api"
+    },
+    "termsOfService": "https://www.coingecko.com/en/terms"
+  },
+  "servers": [
+    {
+      "url": "https://api.coingecko.com/api/v3",
+      "description": "CoinGecko API v3 Production Server"
+    }
+  ],
+  "paths": {
+    "/ping": {
+      "get": {
+        "summary": "Check API server status",
+        "description": "Check if the CoinGecko API server is alive and responding",
+        "operationId": "ping",
+        "tags": [
+          "General"
+        ],
+        "responses": {
+          "200": {
+            "description": "API server is alive",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "gecko_says": {
+                      "type": "string",
+                      "example": "(V3) To the Moon!"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/simple/price": {
+      "get": {
+        "summary": "Get cryptocurrency prices",
+        "description": "Get the current price of any cryptocurrency in any other supported currencies that you need",
+        "operationId": "getSimplePrice",
+        "tags": [
+          "Simple"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "required": true,
+            "description": "ID of coins, comma-separated if querying more than 1 coin (e.g. bitcoin,ethereum)",
+            "schema": {
+              "type": "string"
+            },
+            "example": "bitcoin,ethereum"
+          },
+          {
+            "name": "vs_currencies",
+            "in": "query",
+            "required": true,
+            "description": "Target currency of market data, comma-separated if querying more than 1 currency (e.g. usd,eur)",
+            "schema": {
+              "type": "string"
+            },
+            "example": "usd,eur"
+          },
+          {
+            "name": "include_market_cap",
+            "in": "query",
+            "required": false,
+            "description": "Include market cap in response",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "include_24hr_vol",
+            "in": "query",
+            "required": false,
+            "description": "Include 24hr volume in response",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "include_24hr_change",
+            "in": "query",
+            "required": false,
+            "description": "Include 24hr price change in response",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "include_last_updated_at",
+            "in": "query",
+            "required": false,
+            "description": "Include last updated timestamp in response",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "precision",
+            "in": "query",
+            "required": false,
+            "description": "Decimal precision for price values",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with cryptocurrency prices",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "example": {
+                  "bitcoin": {
+                    "usd": 45000,
+                    "eur": 42000,
+                    "usd_market_cap": 850000000000,
+                    "usd_24h_vol": 35000000000,
+                    "usd_24h_change": 2.5,
+                    "last_updated_at": 1640000000
+                  },
+                  "ethereum": {
+                    "usd": 3500,
+                    "eur": 3200,
+                    "usd_market_cap": 420000000000,
+                    "usd_24h_vol": 18000000000,
+                    "usd_24h_change": 1.8,
+                    "last_updated_at": 1640000000
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters"
+          },
+          "429": {
+            "description": "Rate limit exceeded"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "PingResponse": {
+        "type": "object",
+        "properties": {
+          "gecko_says": {
+            "type": "string",
+            "description": "Status message from the API"
+          }
+        }
+      },
+      "SimplePriceResponse": {
+        "type": "object",
+        "description": "Price data for requested cryptocurrencies",
+        "additionalProperties": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-cg-demo-api-key",
+        "description": "Optional API key for higher rate limits (Pro accounts)"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "General",
+      "description": "General API operations"
+    },
+    {
+      "name": "Simple",
+      "description": "Simple price endpoints for quick access to cryptocurrency prices"
+    }
+  ],
+  "externalDocs": {
+    "description": "Full CoinGecko API Documentation",
+    "url": "https://www.coingecko.com/de/api"
+  }
+}
