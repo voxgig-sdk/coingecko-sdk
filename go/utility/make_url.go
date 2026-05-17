@@ -3,9 +3,9 @@ package utility
 import (
 	"regexp"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/coingecko-sdk/go/utility/struct"
 
-	"github.com/voxgig-sdk/coingecko-sdk/core"
+	"github.com/voxgig-sdk/coingecko-sdk/go/core"
 )
 
 func makeUrlUtil(ctx *core.Context) (string, error) {

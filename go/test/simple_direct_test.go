@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/coingecko-sdk"
-	"github.com/voxgig-sdk/coingecko-sdk/core"
+	sdk "github.com/voxgig-sdk/coingecko-sdk/go"
+	"github.com/voxgig-sdk/coingecko-sdk/go/core"
 )
 
 func TestSimpleDirect(t *testing.T) {

@@ -3,15 +3,18 @@
     "simple": {
       "SIMPLE00": {
         "bitcoin": {},
-        "ethereum": {}
+        "ethereum": {},
+        "id": "SIMPLE00"
       },
       "SIMPLE01": {
         "bitcoin": {},
-        "ethereum": {}
+        "ethereum": {},
+        "id": "SIMPLE01"
       },
       "SIMPLE02": {
         "bitcoin": {},
-        "ethereum": {}
+        "ethereum": {},
+        "id": "SIMPLE02"
       }
     }
   },

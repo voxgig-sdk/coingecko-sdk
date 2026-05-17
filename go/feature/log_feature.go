@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/coingecko-sdk/core"
+	"github.com/voxgig-sdk/coingecko-sdk/go/core"
 )
 
 type LogFeature struct {

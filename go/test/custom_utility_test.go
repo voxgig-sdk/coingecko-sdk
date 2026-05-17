@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/coingecko-sdk"
+	sdk "github.com/voxgig-sdk/coingecko-sdk/go"
 )
 
 func TestCustomUtility(t *testing.T) {

@@ -1,10 +1,10 @@
 package voxgigcoingeckosdk
 
 import (
-	"github.com/voxgig-sdk/coingecko-sdk/core"
-	"github.com/voxgig-sdk/coingecko-sdk/entity"
-	"github.com/voxgig-sdk/coingecko-sdk/feature"
-	_ "github.com/voxgig-sdk/coingecko-sdk/utility"
+	"github.com/voxgig-sdk/coingecko-sdk/go/core"
+	"github.com/voxgig-sdk/coingecko-sdk/go/entity"
+	"github.com/voxgig-sdk/coingecko-sdk/go/feature"
+	_ "github.com/voxgig-sdk/coingecko-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

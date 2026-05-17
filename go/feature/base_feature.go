@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/coingecko-sdk/core"
+	"github.com/voxgig-sdk/coingecko-sdk/go/core"
 )
 
 type BaseFeature struct {
