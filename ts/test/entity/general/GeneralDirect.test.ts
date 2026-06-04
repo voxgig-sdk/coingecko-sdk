@@ -74,14 +74,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'COINGECKO_TEST_GENERAL_ENTID': {},
     'COINGECKO_TEST_LIVE': 'FALSE',
-    'COINGECKO_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.COINGECKO_TEST_LIVE
 
   if (live) {
     const client = new CoingeckoSDK({
-      apikey: env.COINGECKO_APIKEY,
     })
 
     let idmap: any = env['COINGECKO_TEST_GENERAL_ENTID']

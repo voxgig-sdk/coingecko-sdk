@@ -117,7 +117,6 @@ func simpleBasicSetup(extra map[string]any) *entityTestSetup {
 		"COINGECKO_TEST_SIMPLE_ENTID": idmap,
 		"COINGECKO_TEST_LIVE":      "FALSE",
 		"COINGECKO_TEST_EXPLAIN":   "FALSE",
-		"COINGECKO_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["COINGECKO_TEST_SIMPLE_ENTID"])
@@ -128,7 +127,6 @@ func simpleBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["COINGECKO_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["COINGECKO_APIKEY"],
 			},
 			extra,
 		})

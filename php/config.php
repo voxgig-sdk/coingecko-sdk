@@ -20,9 +20,6 @@ class CoingeckoConfig
             ],
             "options" => [
                 "base" => "https://api.coingecko.com/api/v3",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],

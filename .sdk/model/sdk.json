@@ -18,7 +18,18 @@
         ],
         "termsOfService": "https://www.coingecko.com/en/terms",
         "title": "CoinGecko API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "tagline": "Aggregated cryptocurrency prices, market data, NFTs, exchanges, and historical series across thousands of coins",
+        "homepage": "https://www.coingecko.com/",
+        "docs_url": "https://docs.coingecko.com/",
+        "license_short": "Proprietary commercial API; Demo tier available with limits, Pro tiers paid. Attribution typically required.",
+        "license_md": "- Proprietary commercial service operated by CoinGecko\n- Free Demo API key available with rate limits; paid Pro plans (Analyst tier and above) unlock higher limits and additional delivery methods\n- See CoinGecko terms of service and API plan documentation for attribution and redistribution rules\n- Underlying market data is sourced from 1,000+ exchanges; downstream usage may be subject to each source's terms",
+        "about_md": "[CoinGecko](https://www.coingecko.com/) is one of the longest-running independent cryptocurrency data aggregators, founded in 2014. Its public API exposes the same price, market, and metadata feeds that power the CoinGecko website and many third-party wallets, dashboards, and research tools.\n\nWhat you get from the API:\n\n- Real-time and historical prices for thousands of cryptocurrencies\n- Market data: trading volume, market cap, trading pairs, and tickers\n- Coin metadata, categories, and developer/community stats\n- NFT collection floor prices and base data\n- Exchange listings and derivatives information\n- Coverage spanning 1,000+ exchanges, 18,000+ coins, and on-chain DEX data across many networks\n\nOperational notes: the base URL is `https://api.coingecko.com/api/v3`. A free Demo API key is available with conservative rate limits, while Pro plans raise limits and add WebSocket and Webhook delivery. Responses are JSON and CORS is generally permitted for browser use. Always check the current docs for endpoint availability — some historical endpoints have been deprecated or moved between plan tiers.",
+        "entity_desc": {
+          "general": "Catch-all grouping for endpoints that don't fit a more specific resource, such as global market stats, ping checks, and shared utility calls under `https://api.coingecko.com/api/v3`.",
+          "simple": "Lightweight price lookup endpoints (e.g. `/simple/price`, `/simple/token_price`) that return current prices for one or more coins in one or more target currencies without the overhead of full coin objects."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -26,7 +37,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "general": {

@@ -106,14 +106,12 @@ func simpleDirectSetup(mockres any) *simpleDirectSetupResult {
 	env := envOverride(map[string]any{
 		"COINGECKO_TEST_SIMPLE_ENTID": map[string]any{},
 		"COINGECKO_TEST_LIVE":    "FALSE",
-		"COINGECKO_APIKEY":       "NONE",
 	})
 
 	live := env["COINGECKO_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["COINGECKO_APIKEY"],
 		}
 		client := sdk.NewCoingeckoSDK(mergedOpts)
 
