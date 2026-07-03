@@ -10,7 +10,7 @@ The Python SDK for the Coingecko API — an entity-oriented client following Pyt
 
 ## Install
 ```bash
-pip install coingecko-sdk
+pip install voxgig-sdk-coingecko
 ```
 
 Or install from source:

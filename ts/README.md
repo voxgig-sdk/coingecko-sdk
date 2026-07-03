@@ -10,7 +10,7 @@ The TypeScript SDK for the Coingecko API — a type-safe, entity-oriented client
 
 ## Install
 ```bash
-npm install coingecko
+npm install @voxgig-sdk/coingecko
 ```
 ## Tutorial: your first API call
 

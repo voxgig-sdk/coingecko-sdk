@@ -10,7 +10,7 @@ The PHP SDK for the Coingecko API — an entity-oriented client using PHP conven
 
 ## Install
 ```bash
-composer require voxgig/coingecko-sdk
+composer require voxgig-sdk/coingecko
 ```
 
 

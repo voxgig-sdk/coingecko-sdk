@@ -10,13 +10,13 @@ The Ruby SDK for the Coingecko API — an entity-oriented client using idiomatic
 
 ## Install
 ```bash
-gem install coingecko-sdk
+gem install voxgig-sdk-coingecko
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "coingecko-sdk"
+gem "voxgig-sdk-coingecko"
 ```
 
 Then run:
