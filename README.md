@@ -1,23 +1,8 @@
 # Coingecko SDK
 
-Aggregated cryptocurrency prices, market data, NFTs, exchanges, and historical series across thousands of coins
+CoinGecko API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About CoinGecko API
-
-[CoinGecko](https://www.coingecko.com/) is one of the longest-running independent cryptocurrency data aggregators, founded in 2014. Its public API exposes the same price, market, and metadata feeds that power the CoinGecko website and many third-party wallets, dashboards, and research tools.
-
-What you get from the API:
-
-- Real-time and historical prices for thousands of cryptocurrencies
-- Market data: trading volume, market cap, trading pairs, and tickers
-- Coin metadata, categories, and developer/community stats
-- NFT collection floor prices and base data
-- Exchange listings and derivatives information
-- Coverage spanning 1,000+ exchanges, 18,000+ coins, and on-chain DEX data across many networks
-
-Operational notes: the base URL is `https://api.coingecko.com/api/v3`. A free Demo API key is available with conservative rate limits, while Pro plans raise limits and add WebSocket and Webhook delivery. Responses are JSON and CORS is generally permitted for browser use. Always check the current docs for endpoint availability — some historical endpoints have been deprecated or moved between plan tiers.
 
 ## Try it
 
@@ -51,27 +36,31 @@ gem install coingecko-sdk
 luarocks install coingecko-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { CoingeckoSDK } from 'coingecko'
 
-const client = new CoingeckoSDK({})
+const client = new CoingeckoSDK({
+  apikey: process.env.COINGECKO_APIKEY,
+})
 
+// Load general data
+const general = await client.General().load({})
+console.log(general.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -101,8 +90,8 @@ The API exposes 2 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **General** | Catch-all grouping for endpoints that don't fit a more specific resource, such as global market stats, ping checks, and shared utility calls under `https://api.coingecko.com/api/v3`. | `/ping` |
-| **Simple** | Lightweight price lookup endpoints (e.g. `/simple/price`, `/simple/token_price`) that return current prices for one or more coins in one or more target currencies without the overhead of full coin objects. | `/simple/price` |
+| **General** |  | `/ping` |
+| **Simple** |  | `/simple/price` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -112,15 +101,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from coingecko_sdk import CoingeckoSDK
 
-client = CoingeckoSDK({})
+client = CoingeckoSDK({
+    "apikey": os.environ.get("COINGECKO_APIKEY"),
+})
 
 
 # Load a specific general
-general, err = client.General(None).load(
-    {"id": "example_id"}, None
-)
+general, err = client.General().load({"id": "example_id"})
+print(general)
 ```
 
 ### PHP
@@ -129,13 +120,14 @@ general, err = client.General(None).load(
 <?php
 require_once 'coingecko_sdk.php';
 
-$client = new CoingeckoSDK([]);
+$client = new CoingeckoSDK([
+    "apikey" => getenv("COINGECKO_APIKEY"),
+]);
 
 
 // Load a specific general
-[$general, $err] = $client->General(null)->load(
-    ["id" => "example_id"], null
-);
+[$general, $err] = $client->General()->load(["id" => "example_id"]);
+print_r($general);
 ```
 
 ### Golang
@@ -143,8 +135,13 @@ $client = new CoingeckoSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/coingecko-sdk/go"
 
-client := sdk.NewCoingeckoSDK(map[string]any{})
+client := sdk.NewCoingeckoSDK(map[string]any{
+    "apikey": os.Getenv("COINGECKO_APIKEY"),
+})
 
+// Load general data
+general, err := client.General(nil).Load(map[string]any{}, nil)
+fmt.Println(general)
 ```
 
 ### Ruby
@@ -152,13 +149,14 @@ client := sdk.NewCoingeckoSDK(map[string]any{})
 ```ruby
 require_relative "Coingecko_sdk"
 
-client = CoingeckoSDK.new({})
+client = CoingeckoSDK.new({
+  "apikey" => ENV["COINGECKO_APIKEY"],
+})
 
 
 # Load a specific general
-general, err = client.General(nil).load(
-  { "id" => "example_id" }, nil
-)
+general, err = client.General().load({ "id" => "example_id" })
+puts general
 ```
 
 ### Lua
@@ -166,13 +164,14 @@ general, err = client.General(nil).load(
 ```lua
 local sdk = require("coingecko_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("COINGECKO_APIKEY"),
+})
 
 
 -- Load a specific general
-local general, err = client:General(nil):load(
-  { id = "example_id" }, nil
-)
+local general, err = client:General():load({ id = "example_id" })
+print(general)
 ```
 
 ## Unit testing in offline mode
@@ -191,25 +190,21 @@ const result = await client.General().load({ id: 'test01' })
 ### Python
 
 ```python
-client = CoingeckoSDK.test(None, None)
-result, err = client.General(None).load(
-    {"id": "test01"}, None
-)
+client = CoingeckoSDK.test()
+result, err = client.General().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = CoingeckoSDK::test(null, null);
-[$result, $err] = $client->General(null)->load(
-    ["id" => "test01"], null
-);
+$client = CoingeckoSDK::test();
+[$result, $err] = $client->General()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.General(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -218,19 +213,15 @@ result, err := client.General(nil).Load(
 ### Ruby
 
 ```ruby
-client = CoingeckoSDK.test(nil, nil)
-result, err = client.General(nil).load(
-  { "id" => "test01" }, nil
-)
+client = CoingeckoSDK.test
+result, err = client.General().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:General(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:General():load({ id = "test01" })
 ```
 
 ## How it works
@@ -334,16 +325,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the CoinGecko API
-
-- Upstream: [https://www.coingecko.com/](https://www.coingecko.com/)
-- API docs: [https://docs.coingecko.com/](https://docs.coingecko.com/)
-
-- Proprietary commercial service operated by CoinGecko
-- Free Demo API key available with rate limits; paid Pro plans (Analyst tier and above) unlock higher limits and additional delivery methods
-- See CoinGecko terms of service and API plan documentation for attribution and redistribution rules
-- Underlying market data is sourced from 1,000+ exchanges; downstream usage may be subject to each source's terms
 
 ---
 

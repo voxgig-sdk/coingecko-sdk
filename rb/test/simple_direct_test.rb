@@ -68,12 +68,14 @@ def simple_direct_setup(mockres)
   env = Runner.env_override({
     "COINGECKO_TEST_SIMPLE_ENTID" => {},
     "COINGECKO_TEST_LIVE" => "FALSE",
+    "COINGECKO_APIKEY" => "NONE",
   })
 
   live = env["COINGECKO_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
+      "apikey" => env["COINGECKO_APIKEY"],
     }
     client = CoingeckoSDK.new(merged_opts)
     return {

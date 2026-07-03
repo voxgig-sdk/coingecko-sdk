@@ -82,6 +82,7 @@ def general_basic_setup(extra)
     "COINGECKO_TEST_GENERAL_ENTID" => idmap,
     "COINGECKO_TEST_LIVE" => "FALSE",
     "COINGECKO_TEST_EXPLAIN" => "FALSE",
+    "COINGECKO_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -93,6 +94,7 @@ def general_basic_setup(extra)
   if env["COINGECKO_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
+        "apikey" => env["COINGECKO_APIKEY"],
       },
       extra || {},
     ])

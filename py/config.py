@@ -15,6 +15,9 @@ def make_config():
         },
         "options": {
             "base": "https://api.coingecko.com/api/v3",
+            "auth": {
+                "prefix": "Bearer",
+            },
             "headers": {
         "content-type": "application/json",
       },
@@ -27,35 +30,35 @@ def make_config():
       "general": {
         "fields": [
           {
+            "active": True,
             "name": "gecko_say",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 0,
           },
         ],
         "name": "general",
         "op": {
           "load": {
+            "input": "data",
             "name": "load",
             "points": [
               {
+                "active": True,
+                "args": {},
                 "method": "GET",
                 "orig": "/ping",
                 "parts": [
                   "ping",
                 ],
+                "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
-                "select": {},
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "load",
           },
         },
@@ -66,89 +69,91 @@ def make_config():
       "simple": {
         "fields": [
           {
+            "active": True,
             "name": "bitcoin",
             "req": False,
             "type": "`$OBJECT`",
-            "active": True,
             "index$": 0,
           },
           {
+            "active": True,
             "name": "ethereum",
             "req": False,
             "type": "`$OBJECT`",
-            "active": True,
             "index$": 1,
           },
         ],
         "name": "simple",
         "op": {
           "load": {
+            "input": "data",
             "name": "load",
             "points": [
               {
+                "active": True,
                 "args": {
                   "query": [
                     {
+                      "active": True,
                       "example": "bitcoin,ethereum",
                       "kind": "query",
                       "name": "ids",
                       "orig": "ids",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "active": True,
                     },
                     {
+                      "active": True,
                       "example": False,
                       "kind": "query",
                       "name": "include_24hr_change",
                       "orig": "include_24hr_change",
                       "reqd": False,
                       "type": "`$BOOLEAN`",
-                      "active": True,
                     },
                     {
+                      "active": True,
                       "example": False,
                       "kind": "query",
                       "name": "include_24hr_vol",
                       "orig": "include_24hr_vol",
                       "reqd": False,
                       "type": "`$BOOLEAN`",
-                      "active": True,
                     },
                     {
+                      "active": True,
                       "example": False,
                       "kind": "query",
                       "name": "include_last_updated_at",
                       "orig": "include_last_updated_at",
                       "reqd": False,
                       "type": "`$BOOLEAN`",
-                      "active": True,
                     },
                     {
+                      "active": True,
                       "example": False,
                       "kind": "query",
                       "name": "include_market_cap",
                       "orig": "include_market_cap",
                       "reqd": False,
                       "type": "`$BOOLEAN`",
-                      "active": True,
                     },
                     {
+                      "active": True,
                       "kind": "query",
                       "name": "precision",
                       "orig": "precision",
                       "reqd": False,
                       "type": "`$STRING`",
-                      "active": True,
                     },
                     {
+                      "active": True,
                       "example": "usd,eur",
                       "kind": "query",
                       "name": "vs_currency",
                       "orig": "vs_currency",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "active": True,
                     },
                   ],
                 },
@@ -174,11 +179,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "load",
           },
         },

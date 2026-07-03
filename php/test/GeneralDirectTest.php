@@ -67,12 +67,14 @@ function general_direct_setup($mockres)
     $env = Runner::env_override([
         "COINGECKO_TEST_GENERAL_ENTID" => [],
         "COINGECKO_TEST_LIVE" => "FALSE",
+        "COINGECKO_APIKEY" => "NONE",
     ]);
 
     $live = $env["COINGECKO_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
+            "apikey" => $env["COINGECKO_APIKEY"],
         ];
         $client = new CoingeckoSDK($merged_opts);
         return [

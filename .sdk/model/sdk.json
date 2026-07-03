@@ -1,42 +1,13 @@
 {
-  "name": "coingecko",
-  "origin": "voxgig-sdk",
   "def": "coingecko_0.1.0.json",
   "main": {
+    "def": {
+      "desc": ""
+    },
     "kit": {
-      "info": {
-        "contact": {
-          "name": "CoinGecko API Support",
-          "url": "https://www.coingecko.com/de/api"
-        },
-        "description": "Powerful API for cryptocurrency data including real-time prices, market data, NFT base prices, trading volume, trading pairs, metadata, historical data, and more. Trusted by thousands of developers in the industry.",
-        "servers": [
-          {
-            "description": "CoinGecko API v3 Production Server",
-            "url": "https://api.coingecko.com/api/v3"
-          }
-        ],
-        "termsOfService": "https://www.coingecko.com/en/terms",
-        "title": "CoinGecko API",
-        "version": "1.0.0",
-        "tagline": "Aggregated cryptocurrency prices, market data, NFTs, exchanges, and historical series across thousands of coins",
-        "homepage": "https://www.coingecko.com/",
-        "docs_url": "https://docs.coingecko.com/",
-        "license_short": "Proprietary commercial API; Demo tier available with limits, Pro tiers paid. Attribution typically required.",
-        "license_md": "- Proprietary commercial service operated by CoinGecko\n- Free Demo API key available with rate limits; paid Pro plans (Analyst tier and above) unlock higher limits and additional delivery methods\n- See CoinGecko terms of service and API plan documentation for attribution and redistribution rules\n- Underlying market data is sourced from 1,000+ exchanges; downstream usage may be subject to each source's terms",
-        "about_md": "[CoinGecko](https://www.coingecko.com/) is one of the longest-running independent cryptocurrency data aggregators, founded in 2014. Its public API exposes the same price, market, and metadata feeds that power the CoinGecko website and many third-party wallets, dashboards, and research tools.\n\nWhat you get from the API:\n\n- Real-time and historical prices for thousands of cryptocurrencies\n- Market data: trading volume, market cap, trading pairs, and tickers\n- Coin metadata, categories, and developer/community stats\n- NFT collection floor prices and base data\n- Exchange listings and derivatives information\n- Coverage spanning 1,000+ exchanges, 18,000+ coins, and on-chain DEX data across many networks\n\nOperational notes: the base URL is `https://api.coingecko.com/api/v3`. A free Demo API key is available with conservative rate limits, while Pro plans raise limits and add WebSocket and Webhook delivery. Responses are JSON and CORS is generally permitted for browser use. Always check the current docs for endpoint availability — some historical endpoints have been deprecated or moved between plan tiers.",
-        "entity_desc": {
-          "general": "Catch-all grouping for endpoints that don't fit a more specific resource, such as global market stats, ping checks, and shared utility calls under `https://api.coingecko.com/api/v3`.",
-          "simple": "Lightweight price lookup endpoints (e.g. `/simple/price`, `/simple/token_price`) that return current prices for one or more coins in one or more target currencies without the overhead of full coin objects."
-        },
-        "auth": false
-      },
       "config": {
         "auth": {
           "prefix": "Bearer"
-        },
-        "headers": {
-          "content-type": "application/json"
         },
         "docs_order": [
           "ts",
@@ -45,136 +16,142 @@
           "go",
           "rb",
           "lua"
-        ]
+        ],
+        "headers": {
+          "content-type": "application/json"
+        }
       },
       "entity": {
         "general": {
+          "active": true,
           "alias": {
             "field": {}
           },
           "fields": [
             {
+              "active": true,
               "name": "gecko_say",
               "req": false,
-              "type": "`$STRING`",
-              "active": true
+              "type": "`$STRING`"
             }
           ],
           "name": "general",
           "op": {
             "load": {
+              "input": "data",
               "name": "load",
               "points": [
                 {
+                  "active": true,
+                  "args": {},
                   "method": "GET",
                   "orig": "/ping",
                   "parts": [
                     "ping"
                   ],
+                  "select": {},
                   "transform": {
                     "req": "`reqdata`",
                     "res": "`body`"
-                  },
-                  "active": true,
-                  "args": {},
-                  "select": {}
+                  }
                 }
-              ],
-              "input": "data"
+              ]
             }
           },
-          "active": true,
           "relations": {
             "ancestors": []
           }
         },
         "simple": {
+          "active": true,
           "alias": {
             "field": {}
           },
           "fields": [
             {
+              "active": true,
               "name": "bitcoin",
               "req": false,
-              "type": "`$OBJECT`",
-              "active": true
+              "type": "`$OBJECT`"
             },
             {
+              "active": true,
               "name": "ethereum",
               "req": false,
-              "type": "`$OBJECT`",
-              "active": true
+              "type": "`$OBJECT`"
             }
           ],
           "name": "simple",
           "op": {
             "load": {
+              "input": "data",
               "name": "load",
               "points": [
                 {
+                  "active": true,
                   "args": {
                     "query": [
                       {
+                        "active": true,
                         "example": "bitcoin,ethereum",
                         "kind": "query",
                         "name": "ids",
                         "orig": "ids",
                         "reqd": true,
-                        "type": "`$STRING`",
-                        "active": true
+                        "type": "`$STRING`"
                       },
                       {
+                        "active": true,
                         "example": false,
                         "kind": "query",
                         "name": "include_24hr_change",
                         "orig": "include_24hr_change",
                         "reqd": false,
-                        "type": "`$BOOLEAN`",
-                        "active": true
+                        "type": "`$BOOLEAN`"
                       },
                       {
+                        "active": true,
                         "example": false,
                         "kind": "query",
                         "name": "include_24hr_vol",
                         "orig": "include_24hr_vol",
                         "reqd": false,
-                        "type": "`$BOOLEAN`",
-                        "active": true
+                        "type": "`$BOOLEAN`"
                       },
                       {
+                        "active": true,
                         "example": false,
                         "kind": "query",
                         "name": "include_last_updated_at",
                         "orig": "include_last_updated_at",
                         "reqd": false,
-                        "type": "`$BOOLEAN`",
-                        "active": true
+                        "type": "`$BOOLEAN`"
                       },
                       {
+                        "active": true,
                         "example": false,
                         "kind": "query",
                         "name": "include_market_cap",
                         "orig": "include_market_cap",
                         "reqd": false,
-                        "type": "`$BOOLEAN`",
-                        "active": true
+                        "type": "`$BOOLEAN`"
                       },
                       {
+                        "active": true,
                         "kind": "query",
                         "name": "precision",
                         "orig": "precision",
                         "reqd": false,
-                        "type": "`$STRING`",
-                        "active": true
+                        "type": "`$STRING`"
                       },
                       {
+                        "active": true,
                         "example": "usd,eur",
                         "kind": "query",
                         "name": "vs_currency",
                         "orig": "vs_currency",
                         "reqd": true,
-                        "type": "`$STRING`",
-                        "active": true
+                        "type": "`$STRING`"
                       }
                     ]
                   },
@@ -199,14 +176,11 @@
                   "transform": {
                     "req": "`reqdata`",
                     "res": "`body`"
-                  },
-                  "active": true
+                  }
                 }
-              ],
-              "input": "data"
+              ]
             }
           },
-          "active": true,
           "relations": {
             "ancestors": []
           }
@@ -214,9 +188,6 @@
       },
       "feature": {
         "test": {
-          "name": "test",
-          "title": "In-memory mock transport for testing without a live server",
-          "version": "0.0.1",
           "active": true,
           "config": {
             "options": {
@@ -224,6 +195,14 @@
             }
           },
           "hook": {
+            "GetData": {
+              "active": true,
+              "await": false
+            },
+            "GetMatch": {
+              "active": true,
+              "await": false
+            },
             "PostConstruct": {
               "active": true,
               "await": false
@@ -232,25 +211,11 @@
               "active": true,
               "await": false
             },
-            "SetData": {
-              "active": true,
-              "await": false
-            },
-            "GetData": {
-              "active": true,
-              "await": false
-            },
-            "SetMatch": {
-              "active": true
-            },
-            "GetMatch": {
-              "active": true,
+            "PostOperation": {
+              "active": false,
               "await": false
             },
             "PrePoint": {
-              "active": true
-            },
-            "PreSpec": {
               "active": true,
               "await": false
             },
@@ -266,20 +231,32 @@
               "active": true,
               "await": false
             },
+            "PreSpec": {
+              "active": true,
+              "await": false
+            },
             "PreTarget": {
               "active": false,
               "await": false
             },
-            "PostOperation": {
-              "active": false,
+            "SetData": {
+              "active": true,
+              "await": false
+            },
+            "SetMatch": {
+              "active": true,
               "await": false
             }
           },
+          "name": "test",
           "target": {
-            "ts": {
+            "go": {
               "deps": {}
             },
-            "go": {
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
               "deps": {}
             },
             "lua": {
@@ -294,28 +271,34 @@
             "rb": {
               "deps": {}
             },
-            "go-cli": {
-              "deps": {}
-            },
-            "go-mcp": {
+            "ts": {
               "deps": {}
             }
-          }
+          },
+          "title": "In-memory mock transport for testing without a live server",
+          "version": "0.0.1"
         }
       },
       "flow": {
         "BasicGeneralFlow": {
+          "active": true,
           "entity": "general",
+          "key$": "BasicGeneralFlow",
           "kind": "basic",
           "name": "BasicGeneralFlow",
+          "param": {},
           "step": [
             {
+              "active": true,
+              "data": {},
               "input": {
                 "ref": "general_ref01",
                 "srcdatavar": "general_ref01_data",
                 "suffix": "_dt0"
               },
+              "match": {},
               "op": "load",
+              "spec": [],
               "valid": [
                 {
                   "apply": "TextFieldMark",
@@ -323,29 +306,29 @@
                     "mark": "Mark01-general_ref01"
                   }
                 }
-              ],
-              "active": true,
-              "match": {},
-              "data": {},
-              "spec": []
+              ]
             }
-          ],
-          "key$": "BasicGeneralFlow",
-          "active": true,
-          "param": {}
+          ]
         },
         "BasicSimpleFlow": {
+          "active": true,
           "entity": "simple",
+          "key$": "BasicSimpleFlow",
           "kind": "basic",
           "name": "BasicSimpleFlow",
+          "param": {},
           "step": [
             {
+              "active": true,
+              "data": {},
               "input": {
                 "ref": "simple_ref01",
                 "srcdatavar": "simple_ref01_data",
                 "suffix": "_dt0"
               },
+              "match": {},
               "op": "load",
+              "spec": [],
               "valid": [
                 {
                   "apply": "TextFieldMark",
@@ -353,28 +336,54 @@
                     "mark": "Mark01-simple_ref01"
                   }
                 }
-              ],
-              "active": true,
-              "match": {},
-              "data": {},
-              "spec": []
+              ]
             }
-          ],
-          "key$": "BasicSimpleFlow",
-          "active": true,
-          "param": {}
+          ]
         }
       },
+      "info": {
+        "contact": {
+          "name": "CoinGecko API Support",
+          "url": "https://www.coingecko.com/de/api"
+        },
+        "description": "Powerful API for cryptocurrency data including real-time prices, market data, NFT base prices, trading volume, trading pairs, metadata, historical data, and more. Trusted by thousands of developers in the industry.",
+        "servers": [
+          {
+            "description": "CoinGecko API v3 Production Server",
+            "url": "https://api.coingecko.com/api/v3"
+          }
+        ],
+        "termsOfService": "https://www.coingecko.com/en/terms",
+        "title": "CoinGecko API",
+        "version": "1.0.0"
+      },
+      "option": {},
       "target": {
-        "go-cli": {
-          "title": "Go CLI",
-          "ext": "go",
+        "go": {
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "go",
           "module": {
             "name": "coingecko"
           },
+          "name": "go",
+          "srcfeature": false,
+          "title": "Golang"
+        },
+        "go-cli": {
+          "active": true,
+          "comment": {
+            "line": "//"
+          },
+          "deps": {},
+          "ext": "go",
+          "module": {
+            "name": "coingecko"
+          },
+          "name": "go-cli",
           "phase": {
             "entity": {
               "active": false
@@ -389,19 +398,19 @@
               "active": false
             }
           },
-          "deps": {},
-          "name": "go-cli",
-          "active": true
+          "title": "Go CLI"
         },
         "go-mcp": {
-          "title": "Go MCP server",
-          "ext": "go",
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "go",
           "module": {
             "name": "coingecko"
           },
+          "name": "go-mcp",
           "phase": {
             "entity": {
               "active": false
@@ -416,138 +425,120 @@
               "active": false
             }
           },
-          "deps": {},
-          "name": "go-mcp",
-          "active": true
-        },
-        "ts": {
-          "title": "TypeScript",
-          "ext": "ts",
-          "comment": {
-            "line": "//"
-          },
-          "module": {
-            "name": "coingecko"
-          },
-          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
-          "deps": {
-            "dotenv": {
-              "active": true,
-              "version": "^17.4.2",
-              "kind": "dev"
-            },
-            "typescript": {
-              "active": true,
-              "version": "^5.9.3",
-              "kind": "dev"
-            },
-            "@types/node": {
-              "active": true,
-              "version": "^25.6.0",
-              "kind": "dev"
-            }
-          },
-          "name": "ts",
-          "active": true
-        },
-        "go": {
-          "title": "Golang",
-          "ext": "go",
-          "comment": {
-            "line": "//"
-          },
-          "module": {
-            "name": "coingecko"
-          },
-          "srcfeature": false,
-          "deps": {},
-          "name": "go",
-          "active": true
+          "title": "Go MCP server"
         },
         "lua": {
-          "title": "Lua",
-          "ext": "lua",
+          "active": true,
           "comment": {
             "line": "--"
           },
-          "module": {
-            "name": "coingecko"
-          },
-          "srcfeature": false,
           "deps": {
             "dkjson": {
               "active": true,
-              "version": "2.5",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "2.5"
             }
           },
+          "ext": "lua",
+          "module": {
+            "name": "coingecko"
+          },
           "name": "lua",
-          "active": true
+          "srcfeature": false,
+          "title": "Lua"
         },
         "php": {
-          "title": "PHP",
-          "ext": "php",
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "php",
           "module": {
             "name": "coingecko"
           },
-          "srcfeature": false,
-          "deps": {},
           "name": "php",
-          "active": true
+          "srcfeature": false,
+          "title": "PHP"
         },
         "py": {
-          "title": "Python",
-          "ext": "py",
+          "active": true,
           "comment": {
             "line": "#"
           },
-          "module": {
-            "name": "coingecko"
-          },
-          "srcfeature": false,
           "deps": {
             "requests": {
               "active": true,
-              "version": "2.33",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "2.33"
             }
           },
-          "name": "py",
-          "active": true
-        },
-        "rb": {
-          "title": "Ruby",
-          "ext": "rb",
-          "comment": {
-            "line": "#"
-          },
+          "ext": "py",
           "module": {
             "name": "coingecko"
           },
+          "name": "py",
           "srcfeature": false,
+          "title": "Python"
+        },
+        "rb": {
+          "active": true,
+          "comment": {
+            "line": "#"
+          },
           "deps": {
-            "voxgig-struct": {
-              "active": true,
-              "version": "0.0.10",
-              "kind": "prod"
-            },
             "json": {
               "active": true,
-              "version": "0",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "0"
+            },
+            "voxgig-struct": {
+              "active": true,
+              "kind": "prod",
+              "version": "0.0.10"
             }
           },
+          "ext": "rb",
+          "module": {
+            "name": "coingecko"
+          },
           "name": "rb",
-          "active": true
+          "srcfeature": false,
+          "title": "Ruby"
+        },
+        "ts": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "//"
+          },
+          "deps": {
+            "@types/node": {
+              "active": true,
+              "kind": "dev",
+              "version": "^25.6.0"
+            },
+            "dotenv": {
+              "active": true,
+              "kind": "dev",
+              "version": "^17.4.2"
+            },
+            "typescript": {
+              "active": true,
+              "kind": "dev",
+              "version": "^5.9.3"
+            }
+          },
+          "ext": "ts",
+          "module": {
+            "name": "coingecko"
+          },
+          "name": "ts",
+          "title": "TypeScript"
         }
-      },
-      "option": {}
-    },
-    "def": {
-      "desc": ""
+      }
     }
-  }
+  },
+  "name": "coingecko",
+  "origin": "voxgig-sdk"
 }

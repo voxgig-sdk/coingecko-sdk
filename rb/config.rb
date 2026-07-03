@@ -15,6 +15,9 @@ module CoingeckoConfig
       },
       "options" => {
         "base" => "https://api.coingecko.com/api/v3",
+        "auth" => {
+          "prefix" => "Bearer",
+        },
         "headers" => {
           "content-type" => "application/json",
         },
@@ -27,35 +30,35 @@ module CoingeckoConfig
         "general" => {
           "fields" => [
             {
+              "active" => true,
               "name" => "gecko_say",
               "req" => false,
               "type" => "`$STRING`",
-              "active" => true,
               "index$" => 0,
             },
           ],
           "name" => "general",
           "op" => {
             "load" => {
+              "input" => "data",
               "name" => "load",
               "points" => [
                 {
+                  "active" => true,
+                  "args" => {},
                   "method" => "GET",
                   "orig" => "/ping",
                   "parts" => [
                     "ping",
                   ],
+                  "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "active" => true,
-                  "args" => {},
-                  "select" => {},
                   "index$" => 0,
                 },
               ],
-              "input" => "data",
               "key$" => "load",
             },
           },
@@ -66,89 +69,91 @@ module CoingeckoConfig
         "simple" => {
           "fields" => [
             {
+              "active" => true,
               "name" => "bitcoin",
               "req" => false,
               "type" => "`$OBJECT`",
-              "active" => true,
               "index$" => 0,
             },
             {
+              "active" => true,
               "name" => "ethereum",
               "req" => false,
               "type" => "`$OBJECT`",
-              "active" => true,
               "index$" => 1,
             },
           ],
           "name" => "simple",
           "op" => {
             "load" => {
+              "input" => "data",
               "name" => "load",
               "points" => [
                 {
+                  "active" => true,
                   "args" => {
                     "query" => [
                       {
+                        "active" => true,
                         "example" => "bitcoin,ethereum",
                         "kind" => "query",
                         "name" => "ids",
                         "orig" => "ids",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "active" => true,
                       },
                       {
+                        "active" => true,
                         "example" => false,
                         "kind" => "query",
                         "name" => "include_24hr_change",
                         "orig" => "include_24hr_change",
                         "reqd" => false,
                         "type" => "`$BOOLEAN`",
-                        "active" => true,
                       },
                       {
+                        "active" => true,
                         "example" => false,
                         "kind" => "query",
                         "name" => "include_24hr_vol",
                         "orig" => "include_24hr_vol",
                         "reqd" => false,
                         "type" => "`$BOOLEAN`",
-                        "active" => true,
                       },
                       {
+                        "active" => true,
                         "example" => false,
                         "kind" => "query",
                         "name" => "include_last_updated_at",
                         "orig" => "include_last_updated_at",
                         "reqd" => false,
                         "type" => "`$BOOLEAN`",
-                        "active" => true,
                       },
                       {
+                        "active" => true,
                         "example" => false,
                         "kind" => "query",
                         "name" => "include_market_cap",
                         "orig" => "include_market_cap",
                         "reqd" => false,
                         "type" => "`$BOOLEAN`",
-                        "active" => true,
                       },
                       {
+                        "active" => true,
                         "kind" => "query",
                         "name" => "precision",
                         "orig" => "precision",
                         "reqd" => false,
                         "type" => "`$STRING`",
-                        "active" => true,
                       },
                       {
+                        "active" => true,
                         "example" => "usd,eur",
                         "kind" => "query",
                         "name" => "vs_currency",
                         "orig" => "vs_currency",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "active" => true,
                       },
                     ],
                   },
@@ -174,11 +179,9 @@ module CoingeckoConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "active" => true,
                   "index$" => 0,
                 },
               ],
-              "input" => "data",
               "key$" => "load",
             },
           },

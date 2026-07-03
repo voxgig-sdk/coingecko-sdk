@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'COINGECKO_TEST_SIMPLE_ENTID': idmap,
     'COINGECKO_TEST_LIVE': 'FALSE',
     'COINGECKO_TEST_EXPLAIN': 'FALSE',
+    'COINGECKO_APIKEY': 'NONE',
   })
 
   idmap = env['COINGECKO_TEST_SIMPLE_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new CoingeckoSDK(merge([
       {
+        apikey: env.COINGECKO_APIKEY,
       },
       extra
     ]))

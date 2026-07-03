@@ -14,6 +14,9 @@ func MakeConfig() map[string]any {
 		},
 		"options": map[string]any{
 			"base": "https://api.coingecko.com/api/v3",
+			"auth": map[string]any{
+				"prefix": "Bearer",
+			},
 			"headers": map[string]any{
 				"content-type": "application/json",
 			},
@@ -26,35 +29,35 @@ func MakeConfig() map[string]any {
 			"general": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"active": true,
 						"name": "gecko_say",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 0,
 					},
 				},
 				"name": "general",
 				"op": map[string]any{
 					"load": map[string]any{
+						"input": "data",
 						"name": "load",
 						"points": []any{
 							map[string]any{
+								"active": true,
+								"args": map[string]any{},
 								"method": "GET",
 								"orig": "/ping",
 								"parts": []any{
 									"ping",
 								},
+								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"active": true,
-								"args": map[string]any{},
-								"select": map[string]any{},
 								"index$": 0,
 							},
 						},
-						"input": "data",
 						"key$": "load",
 					},
 				},
@@ -65,89 +68,91 @@ func MakeConfig() map[string]any {
 			"simple": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"active": true,
 						"name": "bitcoin",
 						"req": false,
 						"type": "`$OBJECT`",
-						"active": true,
 						"index$": 0,
 					},
 					map[string]any{
+						"active": true,
 						"name": "ethereum",
 						"req": false,
 						"type": "`$OBJECT`",
-						"active": true,
 						"index$": 1,
 					},
 				},
 				"name": "simple",
 				"op": map[string]any{
 					"load": map[string]any{
+						"input": "data",
 						"name": "load",
 						"points": []any{
 							map[string]any{
+								"active": true,
 								"args": map[string]any{
 									"query": []any{
 										map[string]any{
+											"active": true,
 											"example": "bitcoin,ethereum",
 											"kind": "query",
 											"name": "ids",
 											"orig": "ids",
 											"reqd": true,
 											"type": "`$STRING`",
-											"active": true,
 										},
 										map[string]any{
+											"active": true,
 											"example": false,
 											"kind": "query",
 											"name": "include_24hr_change",
 											"orig": "include_24hr_change",
 											"reqd": false,
 											"type": "`$BOOLEAN`",
-											"active": true,
 										},
 										map[string]any{
+											"active": true,
 											"example": false,
 											"kind": "query",
 											"name": "include_24hr_vol",
 											"orig": "include_24hr_vol",
 											"reqd": false,
 											"type": "`$BOOLEAN`",
-											"active": true,
 										},
 										map[string]any{
+											"active": true,
 											"example": false,
 											"kind": "query",
 											"name": "include_last_updated_at",
 											"orig": "include_last_updated_at",
 											"reqd": false,
 											"type": "`$BOOLEAN`",
-											"active": true,
 										},
 										map[string]any{
+											"active": true,
 											"example": false,
 											"kind": "query",
 											"name": "include_market_cap",
 											"orig": "include_market_cap",
 											"reqd": false,
 											"type": "`$BOOLEAN`",
-											"active": true,
 										},
 										map[string]any{
+											"active": true,
 											"kind": "query",
 											"name": "precision",
 											"orig": "precision",
 											"reqd": false,
 											"type": "`$STRING`",
-											"active": true,
 										},
 										map[string]any{
+											"active": true,
 											"example": "usd,eur",
 											"kind": "query",
 											"name": "vs_currency",
 											"orig": "vs_currency",
 											"reqd": true,
 											"type": "`$STRING`",
-											"active": true,
 										},
 									},
 								},
@@ -173,11 +178,9 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"active": true,
 								"index$": 0,
 							},
 						},
-						"input": "data",
 						"key$": "load",
 					},
 				},
