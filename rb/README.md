@@ -34,8 +34,9 @@ client = CoingeckoSDK.new({
 
 ```ruby
 begin
-  result = client.general.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare General record (raises on error).
+  general = client.General.load({ "id" => "example_id" })
+  puts general
 rescue => err
   warn "load failed: #{err}"
 end
@@ -82,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = CoingeckoSDK.test
+client = CoingeckoSDK.test({
+  "entity" => { "general" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.general.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+general = client.General.load({ "id" => "test01" })
+puts general
 ```
 
 ### Use a custom fetch function
@@ -234,7 +239,7 @@ API path: `/simple/price`
 
 ### General
 
-Create an instance: `const general = client.general`
+Create an instance: `general = client.General`
 
 #### Operations
 
@@ -250,14 +255,15 @@ Create an instance: `const general = client.general`
 
 #### Example: Load
 
-```ts
-const general = await client.general.load({ id: 'general_id' })
+```ruby
+# load returns the bare General record (raises on error).
+general = client.General.load({ "id" => "general_id" })
 ```
 
 
 ### Simple
 
-Create an instance: `const simple = client.simple`
+Create an instance: `simple = client.Simple`
 
 #### Operations
 
@@ -274,8 +280,9 @@ Create an instance: `const simple = client.simple`
 
 #### Example: Load
 
-```ts
-const simple = await client.simple.load({ id: 'simple_id' })
+```ruby
+# load returns the bare Simple record (raises on error).
+simple = client.Simple.load({ "id" => "simple_id" })
 ```
 
 
@@ -350,7 +357,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-general = client.general
+general = client.General
 general.load({ "id" => "example_id" })
 
 # general.data_get now returns the loaded general data

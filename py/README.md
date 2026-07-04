@@ -36,10 +36,12 @@ client = CoingeckoSDK({
 
 ### 3. Load a general
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.general.load({"id": "example_id"})
-    print(result)
+    general = client.General().load({"id": "example_id"})
+    print(general)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -87,8 +89,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = CoingeckoSDK.test()
 
-result = client.general.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+general = client.General().load({"id": "test01"})
+# general contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -235,7 +238,7 @@ API path: `/simple/price`
 
 ### General
 
-Create an instance: `const general = client.general`
+Create an instance: `general = client.General()`
 
 #### Operations
 
@@ -251,14 +254,14 @@ Create an instance: `const general = client.general`
 
 #### Example: Load
 
-```ts
-const general = await client.general.load({ id: 'general_id' })
+```python
+general = client.General().load({"id": "general_id"})
 ```
 
 
 ### Simple
 
-Create an instance: `const simple = client.simple`
+Create an instance: `simple = client.Simple()`
 
 #### Operations
 
@@ -275,8 +278,8 @@ Create an instance: `const simple = client.simple`
 
 #### Example: Load
 
-```ts
-const simple = await client.simple.load({ id: 'simple_id' })
+```python
+simple = client.Simple().load({"id": "simple_id"})
 ```
 
 
@@ -350,7 +353,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-general = client.general
+general = client.General()
 general.load({"id": "example_id"})
 
 # general.data_get() now returns the loaded general data

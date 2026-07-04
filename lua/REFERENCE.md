@@ -88,7 +88,7 @@ same parameters as `direct()`.
 ## GeneralEntity
 
 ```lua
-local general = client:general(nil)
+local general = client:General(nil)
 ```
 
 ### Fields
@@ -104,7 +104,7 @@ local general = client:general(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:general():load({ id = "general_id" })
+local result, err = client:General():load({ id = "general_id" })
 ```
 
 ### Common Methods
@@ -140,7 +140,7 @@ Return the entity name.
 ## SimpleEntity
 
 ```lua
-local simple = client:simple(nil)
+local simple = client:Simple(nil)
 ```
 
 ### Fields
@@ -157,7 +157,7 @@ local simple = client:simple(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:simple():load({ id = "simple_id" })
+local result, err = client:Simple():load({ id = "simple_id" })
 ```
 
 ### Common Methods

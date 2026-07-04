@@ -85,7 +85,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## GeneralEntity
 
 ```python
-general = client.general
+general = client.General()
 ```
 
 ### Fields
@@ -101,7 +101,7 @@ general = client.general
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.general.load({"id": "general_id"})
+result = client.General().load({"id": "general_id"})
 ```
 
 ### Common Methods
@@ -136,7 +136,7 @@ Return the entity name.
 ## SimpleEntity
 
 ```python
-simple = client.simple
+simple = client.Simple()
 ```
 
 ### Fields
@@ -153,7 +153,7 @@ simple = client.simple
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.simple.load({"id": "simple_id"})
+result = client.Simple().load({"id": "simple_id"})
 ```
 
 ### Common Methods

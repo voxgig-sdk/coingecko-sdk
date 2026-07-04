@@ -205,28 +205,14 @@ class CoingeckoSDK {
 
 
 
-  _general?: GeneralEntity
-
-  // Idiomatic facade: `client.general.list()` / `client.general.load({ id })`.
-  get general(): GeneralEntity {
-    return (this._general ??= new GeneralEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.general` instead. */
+  // Entity access: `client.General().list()` / `client.General().load({ id })`.
   General(data?: any) {
     const self = this
     return new GeneralEntity(self,data)
   }
 
 
-  _simple?: SimpleEntity
-
-  // Idiomatic facade: `client.simple.list()` / `client.simple.load({ id })`.
-  get simple(): SimpleEntity {
-    return (this._simple ??= new SimpleEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.simple` instead. */
+  // Entity access: `client.Simple().list()` / `client.Simple().load({ id })`.
   Simple(data?: any) {
     const self = this
     return new SimpleEntity(self,data)

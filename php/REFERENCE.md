@@ -90,7 +90,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## GeneralEntity
 
 ```php
-$general = $client->general();
+$general = $client->General();
 ```
 
 ### Fields
@@ -106,7 +106,7 @@ $general = $client->general();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->general()->load(["id" => "general_id"]);
+$result = $client->General()->load(["id" => "general_id"]);
 ```
 
 ### Common Methods
@@ -142,7 +142,7 @@ Return the entity name.
 ## SimpleEntity
 
 ```php
-$simple = $client->simple();
+$simple = $client->Simple();
 ```
 
 ### Fields
@@ -159,7 +159,7 @@ $simple = $client->simple();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->simple()->load(["id" => "simple_id"]);
+$result = $client->Simple()->load(["id" => "simple_id"]);
 ```
 
 ### Common Methods

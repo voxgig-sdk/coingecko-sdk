@@ -208,26 +208,14 @@ class CoingeckoSDK
   end
 
 
-  # Idiomatic facade: client.general.list / client.general.load({ "id" => ... })
-  def general
-    require_relative 'entity/general_entity'
-    @general ||= GeneralEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.general instead.
+  # Canonical facade: client.General.list / client.General.load({ "id" => ... })
   def General(data = nil)
     require_relative 'entity/general_entity'
     GeneralEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.simple.list / client.simple.load({ "id" => ... })
-  def simple
-    require_relative 'entity/simple_entity'
-    @simple ||= SimpleEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.simple instead.
+  # Canonical facade: client.Simple.list / client.Simple.load({ "id" => ... })
   def Simple(data = nil)
     require_relative 'entity/simple_entity'
     SimpleEntity.new(self, data)

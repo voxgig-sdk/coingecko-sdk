@@ -220,41 +220,21 @@ class CoingeckoSDK:
         }
 
 
-    @property
-    def general(self):
-        """Idiomatic facade: client.general.list() / client.general.load({"id": ...})."""
-        from entity.general_entity import GeneralEntity
-        cached = getattr(self, "_general", None)
-        if cached is None:
-            cached = GeneralEntity(self, None)
-            self._general = cached
-        return cached
-
-    def General(self, data=None):
-        # Deprecated: use client.general instead.
+    def General(self, data=None) -> "GeneralEntity":
+        """Entity factory: client.General().list({}) / client.General().load({"id": ...})."""
         from entity.general_entity import GeneralEntity
         return GeneralEntity(self, data)
 
 
-    @property
-    def simple(self):
-        """Idiomatic facade: client.simple.list() / client.simple.load({"id": ...})."""
-        from entity.simple_entity import SimpleEntity
-        cached = getattr(self, "_simple", None)
-        if cached is None:
-            cached = SimpleEntity(self, None)
-            self._simple = cached
-        return cached
-
-    def Simple(self, data=None):
-        # Deprecated: use client.simple instead.
+    def Simple(self, data=None) -> "SimpleEntity":
+        """Entity factory: client.Simple().list({}) / client.Simple().load({"id": ...})."""
         from entity.simple_entity import SimpleEntity
         return SimpleEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "CoingeckoSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -274,3 +254,10 @@ class CoingeckoSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.general_entity import GeneralEntity
+    from entity.simple_entity import SimpleEntity

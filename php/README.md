@@ -35,9 +35,10 @@ $client = new CoingeckoSDK([
 
 ```php
 try {
-    $result = $client->general()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare General record (throws on error).
+    $general = $client->General()->load(["id" => "example_id"]);
+    print_r($general);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -83,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = CoingeckoSDK::test();
+$client = CoingeckoSDK::test([
+    "entity" => ["general" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->general()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$general = $client->General()->load(["id" => "test01"]);
+print_r($general);
 ```
 
 ### Use a custom fetch function
@@ -239,7 +244,7 @@ API path: `/simple/price`
 
 ### General
 
-Create an instance: `const general = client.general`
+Create an instance: `$general = $client->General();`
 
 #### Operations
 
@@ -255,14 +260,15 @@ Create an instance: `const general = client.general`
 
 #### Example: Load
 
-```ts
-const general = await client.general.load({ id: 'general_id' })
+```php
+// load() returns the bare General record (throws on error).
+$general = $client->General()->load(["id" => "general_id"]);
 ```
 
 
 ### Simple
 
-Create an instance: `const simple = client.simple`
+Create an instance: `$simple = $client->Simple();`
 
 #### Operations
 
@@ -279,8 +285,9 @@ Create an instance: `const simple = client.simple`
 
 #### Example: Load
 
-```ts
-const simple = await client.simple.load({ id: 'simple_id' })
+```php
+// load() returns the bare Simple record (throws on error).
+$simple = $client->Simple()->load(["id" => "simple_id"]);
 ```
 
 
@@ -355,7 +362,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$general = $client->general();
+$general = $client->General();
 $general->load(["id" => "example_id"]);
 
 // $general->dataGet() now returns the loaded general data

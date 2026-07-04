@@ -233,10 +233,10 @@ class CoingeckoSDK
 
     private $_general = null;
 
-    // Idiomatic facade: $client->general()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias General() (PHP method
-    // names are case-insensitive).
-    public function general($data = null)
+    // Canonical facade: $client->General()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->general()
+    // resolves here too.
+    public function General($data = null)
     {
         require_once __DIR__ . '/entity/general_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class CoingeckoSDK
 
     private $_simple = null;
 
-    // Idiomatic facade: $client->simple()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Simple() (PHP method
-    // names are case-insensitive).
-    public function simple($data = null)
+    // Canonical facade: $client->Simple()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->simple()
+    // resolves here too.
+    public function Simple($data = null)
     {
         require_once __DIR__ . '/entity/simple_entity.php';
         if ($data === null) {

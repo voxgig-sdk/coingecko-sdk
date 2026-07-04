@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:general():list() / client:general():load({ id = ... })
-function CoingeckoSDK:general(data)
+-- Idiomatic facade: client:General():list() / client:General():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function CoingeckoSDK:General(data)
   local EntityMod = require("entity.general_entity")
   if data == nil then
     if self._general == nil then
@@ -256,15 +257,10 @@ function CoingeckoSDK:general(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:general() instead.
-function CoingeckoSDK:General(data)
-  local EntityMod = require("entity.general_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:simple():list() / client:simple():load({ id = ... })
-function CoingeckoSDK:simple(data)
+-- Idiomatic facade: client:Simple():list() / client:Simple():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function CoingeckoSDK:Simple(data)
   local EntityMod = require("entity.simple_entity")
   if data == nil then
     if self._simple == nil then
@@ -272,12 +268,6 @@ function CoingeckoSDK:simple(data)
     end
     return self._simple
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:simple() instead.
-function CoingeckoSDK:Simple(data)
-  local EntityMod = require("entity.simple_entity")
   return EntityMod.new(self, data)
 end
 

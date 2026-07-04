@@ -28,9 +28,9 @@ const client = new CoingeckoSDK({
   apikey: process.env.COINGECKO_APIKEY,
 })
 
-// Load general data
-const general = await client.general.load({})
-console.log(general.data)
+// Load general data (returns a General)
+const general = await client.General().load()
+console.log(general)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -90,8 +90,8 @@ client = CoingeckoSDK({
 })
 
 
-# Load a specific general
-general = client.general.load({"id": "example_id"})
+# Load a specific general (returns the record, raises on error)
+general = client.General().load({"id": "example_id"})
 print(general)
 ```
 
@@ -106,8 +106,8 @@ $client = new CoingeckoSDK([
 ]);
 
 
-// Load a specific general
-$general = $client->general()->load(["id" => "example_id"]);
+// Load a specific general (returns the bare record; throws on error)
+$general = $client->General()->load(["id" => "example_id"]);
 print_r($general);
 ```
 
@@ -135,8 +135,8 @@ client = CoingeckoSDK.new({
 })
 
 
-# Load a specific general
-general = client.general.load({ "id" => "example_id" })
+# Load a specific general (returns the bare record; raises on error)
+general = client.General.load({ "id" => "example_id" })
 puts general
 ```
 
@@ -151,7 +151,7 @@ local client = sdk.new({
 
 
 -- Load a specific general
-local general, err = client:general():load({ id = "example_id" })
+local general, err = client:General():load({ id = "example_id" })
 print(general)
 ```
 
@@ -164,22 +164,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = CoingeckoSDK.test()
-const result = await client.general.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const general = await client.General().load({ id: 'test01' })
+// general is a bare General populated with mock data
+console.log(general)
 ```
 
 ### Python
 
 ```python
 client = CoingeckoSDK.test()
-result = client.general.load({"id": "test01"})
+general = client.General().load({"id": "test01"})
+print(general)
 ```
 
 ### PHP
 
 ```php
-$client = CoingeckoSDK::test();
-$result = $client->general()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = CoingeckoSDK::test([
+    "entity" => ["general" => ["test01" => ["id" => "test01"]]],
+]);
+$general = $client->General()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -194,15 +199,18 @@ result, err := client.General(nil).Load(
 ### Ruby
 
 ```ruby
-client = CoingeckoSDK.test
-result = client.general.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = CoingeckoSDK.test({
+  "entity" => { "general" => { "test01" => { "id" => "test01" } } },
+})
+general = client.General.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:general():load({ id = "test01" })
+local result, err = client:General():load({ id = "test01" })
 ```
 
 ## How it works
@@ -250,6 +258,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

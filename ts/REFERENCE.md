@@ -122,7 +122,7 @@ Alias for `CoingeckoSDK.test()`.
 ## GeneralEntity
 
 ```ts
-const general = client.general
+const general = client.General()
 ```
 
 ### Fields
@@ -138,7 +138,7 @@ const general = client.general
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.general.load({ id: 'general_id' })
+const result = await client.General().load({ id: 'general_id' })
 ```
 
 ### Common Methods
@@ -172,7 +172,7 @@ Return a copy of the entity options.
 ## SimpleEntity
 
 ```ts
-const simple = client.simple
+const simple = client.Simple()
 ```
 
 ### Fields
@@ -189,7 +189,7 @@ const simple = client.simple
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.simple.load({ id: 'simple_id' })
+const result = await client.Simple().load({ id: 'simple_id' })
 ```
 
 ### Common Methods

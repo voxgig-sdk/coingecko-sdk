@@ -91,7 +91,7 @@ same parameters as `direct()`. Raises on error.
 ## GeneralEntity
 
 ```ruby
-general = client.general
+general = client.General
 ```
 
 ### Fields
@@ -107,7 +107,7 @@ general = client.general
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.general.load({ "id" => "general_id" })
+result = client.General.load({ "id" => "general_id" })
 ```
 
 ### Common Methods
@@ -143,7 +143,7 @@ Return the entity name.
 ## SimpleEntity
 
 ```ruby
-simple = client.simple
+simple = client.Simple
 ```
 
 ### Fields
@@ -160,7 +160,7 @@ simple = client.simple
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.simple.load({ "id" => "simple_id" })
+result = client.Simple.load({ "id" => "simple_id" })
 ```
 
 ### Common Methods
