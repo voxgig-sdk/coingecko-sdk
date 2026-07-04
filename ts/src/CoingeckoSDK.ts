@@ -3,6 +3,8 @@
 import { GeneralEntity } from './entity/GeneralEntity'
 import { SimpleEntity } from './entity/SimpleEntity'
 
+export type * from './CoingeckoTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -203,12 +205,28 @@ class CoingeckoSDK {
 
 
 
+  _general?: GeneralEntity
+
+  // Idiomatic facade: `client.general.list()` / `client.general.load({ id })`.
+  get general(): GeneralEntity {
+    return (this._general ??= new GeneralEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.general` instead. */
   General(data?: any) {
     const self = this
     return new GeneralEntity(self,data)
   }
 
 
+  _simple?: SimpleEntity
+
+  // Idiomatic facade: `client.simple.list()` / `client.simple.load({ id })`.
+  get simple(): SimpleEntity {
+    return (this._simple ??= new SimpleEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.simple` instead. */
   Simple(data?: any) {
     const self = this
     return new SimpleEntity(self,data)

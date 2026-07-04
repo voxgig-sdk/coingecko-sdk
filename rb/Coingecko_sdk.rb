@@ -13,6 +13,9 @@ require_relative 'config'
 require_relative 'feature/base_feature'
 require_relative 'features'
 
+# Load typed models (Struct value objects).
+require_relative 'Coingecko_types'
+
 
 class CoingeckoSDK
   attr_accessor :mode, :features, :options
@@ -131,7 +134,7 @@ class CoingeckoSDK
     end
 
     _, err = utility.prepare_auth.call(ctx)
-    return nil, err if err
+    raise err if err
 
     utility.make_fetch_def.call(ctx)
   end
@@ -139,8 +142,14 @@ class CoingeckoSDK
   def direct(fetchargs = {})
     utility = @_utility
 
-    fetchdef, err = prepare(fetchargs)
-    return { "ok" => false, "err" => err }, nil if err
+    # direct() is the raw-HTTP escape hatch: it always returns a result hash
+    # ({ "ok" => ..., ... }) and never raises. prepare() raises on error, so
+    # trap that and surface it in the hash.
+    begin
+      fetchdef = prepare(fetchargs)
+    rescue CoingeckoError => err
+      return { "ok" => false, "err" => err }
+    end
 
     fetchargs ||= {}
     ctrl = CoingeckoHelpers.to_map(VoxgigStruct.getprop(fetchargs, "ctrl")) || {}
@@ -153,13 +162,13 @@ class CoingeckoSDK
     url = fetchdef["url"] || ""
     fetched, fetch_err = utility.fetcher.call(ctx, url, fetchdef)
 
-    return { "ok" => false, "err" => fetch_err }, nil if fetch_err
+    return { "ok" => false, "err" => fetch_err } if fetch_err
 
     if fetched.nil?
       return {
         "ok" => false,
         "err" => ctx.make_error("direct_no_response", "response: undefined"),
-      }, nil
+      }
     end
 
     if fetched.is_a?(Hash)
@@ -189,22 +198,36 @@ class CoingeckoSDK
         "status" => status,
         "headers" => headers,
         "data" => json_data,
-      }, nil
+      }
     end
 
     return {
       "ok" => false,
       "err" => ctx.make_error("direct_invalid", "invalid response type"),
-    }, nil
+    }
   end
 
 
+  # Idiomatic facade: client.general.list / client.general.load({ "id" => ... })
+  def general
+    require_relative 'entity/general_entity'
+    @general ||= GeneralEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.general instead.
   def General(data = nil)
     require_relative 'entity/general_entity'
     GeneralEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.simple.list / client.simple.load({ "id" => ... })
+  def simple
+    require_relative 'entity/simple_entity'
+    @simple ||= SimpleEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.simple instead.
   def Simple(data = nil)
     require_relative 'entity/simple_entity'
     SimpleEntity.new(self, data)

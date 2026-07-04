@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  General,
+  GeneralLoadMatch,
+} from '../CoingeckoTypes'
 
 // TODO: needs Entity superclass
-class GeneralEntity extends CoingeckoEntityBase {
+class GeneralEntity extends CoingeckoEntityBase<General> {
 
   constructor(client: CoingeckoSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class GeneralEntity extends CoingeckoEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: GeneralLoadMatch, ctrl?: Control): Promise<General> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class GeneralEntity extends CoingeckoEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<General> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

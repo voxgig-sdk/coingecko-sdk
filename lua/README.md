@@ -9,12 +9,9 @@ The Lua SDK for the Coingecko API — an entity-oriented client using Lua conven
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-coingecko
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/coingecko-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -39,7 +36,7 @@ local client = sdk.new({
 ### 3. Load a general
 
 ```lua
-local result, err = client:General():load({ id = "example_id" })
+local result, err = client:general():load({ id = "example_id" })
 if err then error(err) end
 print(result)
 ```
@@ -87,7 +84,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Coingecko():load({ id = "test01" })
+local result, err = client:general():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -233,7 +230,7 @@ API path: `/simple/price`
 
 ### General
 
-Create an instance: `const general = client.General()`
+Create an instance: `const general = client.general`
 
 #### Operations
 
@@ -250,13 +247,13 @@ Create an instance: `const general = client.General()`
 #### Example: Load
 
 ```ts
-const general = await client.General().load({ id: 'general_id' })
+const general = await client.general.load({ id: 'general_id' })
 ```
 
 
 ### Simple
 
-Create an instance: `const simple = client.Simple()`
+Create an instance: `const simple = client.simple`
 
 #### Operations
 
@@ -274,7 +271,7 @@ Create an instance: `const simple = client.Simple()`
 #### Example: Load
 
 ```ts
-const simple = await client.Simple().load({ id: 'simple_id' })
+const simple = await client.simple.load({ id: 'simple_id' })
 ```
 
 
@@ -349,11 +346,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local general = client:general()
+general:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- general:data_get() now returns the loaded general data
+-- general:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

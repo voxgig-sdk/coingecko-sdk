@@ -49,8 +49,7 @@ class TestGeneralEntity:
         # LOAD
         general_ref01_ent = client.General(None)
         general_ref01_match_dt0 = {}
-        general_ref01_data_dt0_loaded, err = general_ref01_ent.load(general_ref01_match_dt0, None)
-        assert err is None
+        general_ref01_data_dt0_loaded = general_ref01_ent.load(general_ref01_match_dt0, None)
         assert general_ref01_data_dt0_loaded is not None
 
 

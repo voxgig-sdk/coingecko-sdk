@@ -49,8 +49,7 @@ class SimpleEntityTest extends TestCase
         // LOAD
         $simple_ref01_ent = $client->Simple(null);
         $simple_ref01_match_dt0 = [];
-        [$simple_ref01_data_dt0_loaded, $err] = $simple_ref01_ent->load($simple_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $simple_ref01_data_dt0_loaded = $simple_ref01_ent->load($simple_ref01_match_dt0, null);
         $this->assertNotNull($simple_ref01_data_dt0_loaded);
 
     }

@@ -245,11 +245,17 @@ func (sdk *CoingeckoSDK) Direct(fetchargs map[string]any) (map[string]any, error
 }
 
 
+// General returns a General entity bound to this client.
+// Idiomatic usage: client.General(nil).List(nil, nil) or
+// client.General(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CoingeckoSDK) General(data map[string]any) CoingeckoEntity {
 	return NewGeneralEntityFunc(sdk, data)
 }
 
 
+// Simple returns a Simple entity bound to this client.
+// Idiomatic usage: client.Simple(nil).List(nil, nil) or
+// client.Simple(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *CoingeckoSDK) Simple(data map[string]any) CoingeckoEntity {
 	return NewSimpleEntityFunc(sdk, data)
 }

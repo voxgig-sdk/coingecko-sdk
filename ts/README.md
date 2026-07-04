@@ -9,9 +9,12 @@ The TypeScript SDK for the Coingecko API — a type-safe, entity-oriented client
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/coingecko
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/coingecko-sdk/releases](https://github.com/voxgig-sdk/coingecko-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,7 +23,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { CoingeckoSDK } from 'coingecko'
+import { CoingeckoSDK } from '@voxgig-sdk/coingecko'
 
 const client = new CoingeckoSDK({
   apikey: process.env.COINGECKO_APIKEY,
@@ -30,7 +33,7 @@ const client = new CoingeckoSDK({
 ### 3. Load a general
 
 ```ts
-const result = await client.General().load({ id: 'example_id' })
+const result = await client.general.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -79,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = CoingeckoSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.general.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -96,7 +99,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.general
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -278,7 +281,7 @@ API path: `/simple/price`
 
 ### General
 
-Create an instance: `const general = client.General()`
+Create an instance: `const general = client.general`
 
 #### Operations
 
@@ -295,13 +298,13 @@ Create an instance: `const general = client.General()`
 #### Example: Load
 
 ```ts
-const general = await client.General().load({ id: 'general_id' })
+const general = await client.general.load({ id: 'general_id' })
 ```
 
 
 ### Simple
 
-Create an instance: `const simple = client.Simple()`
+Create an instance: `const simple = client.simple`
 
 #### Operations
 
@@ -319,7 +322,7 @@ Create an instance: `const simple = client.Simple()`
 #### Example: Load
 
 ```ts
-const simple = await client.Simple().load({ id: 'simple_id' })
+const simple = await client.simple.load({ id: 'simple_id' })
 ```
 
 
@@ -380,7 +383,7 @@ coingecko/
 Import the SDK from the package root:
 
 ```ts
-import { CoingeckoSDK } from 'coingecko'
+import { CoingeckoSDK } from '@voxgig-sdk/coingecko'
 ```
 
 ### Entity state
@@ -390,11 +393,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const general = client.general
+await general.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// general.data() now returns the loaded general data
+// general.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

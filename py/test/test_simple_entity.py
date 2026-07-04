@@ -49,8 +49,7 @@ class TestSimpleEntity:
         # LOAD
         simple_ref01_ent = client.Simple(None)
         simple_ref01_match_dt0 = {}
-        simple_ref01_data_dt0_loaded, err = simple_ref01_ent.load(simple_ref01_match_dt0, None)
-        assert err is None
+        simple_ref01_data_dt0_loaded = simple_ref01_ent.load(simple_ref01_match_dt0, None)
         assert simple_ref01_data_dt0_loaded is not None
 
 

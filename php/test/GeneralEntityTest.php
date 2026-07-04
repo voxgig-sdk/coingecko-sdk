@@ -49,8 +49,7 @@ class GeneralEntityTest extends TestCase
         // LOAD
         $general_ref01_ent = $client->General(null);
         $general_ref01_match_dt0 = [];
-        [$general_ref01_data_dt0_loaded, $err] = $general_ref01_ent->load($general_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $general_ref01_data_dt0_loaded = $general_ref01_ent->load($general_ref01_match_dt0, null);
         $this->assertNotNull($general_ref01_data_dt0_loaded);
 
     }
