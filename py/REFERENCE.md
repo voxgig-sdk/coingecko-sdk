@@ -92,7 +92,7 @@ general = client.General()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `gecko_say` | ``$STRING`` | No |  |
+| `gecko_say` | `str` | No |  |
 
 ### Operations
 
@@ -101,7 +101,7 @@ general = client.General()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.General().load({"id": "general_id"})
+result = client.General().load()
 ```
 
 ### Common Methods
@@ -143,8 +143,8 @@ simple = client.Simple()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `bitcoin` | ``$OBJECT`` | No |  |
-| `ethereum` | ``$OBJECT`` | No |  |
+| `bitcoin` | `dict` | No |  |
+| `ethereum` | `dict` | No |  |
 
 ### Operations
 
@@ -153,7 +153,7 @@ simple = client.Simple()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Simple().load({"id": "simple_id"})
+result = client.Simple().load()
 ```
 
 ### Common Methods

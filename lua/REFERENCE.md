@@ -95,7 +95,7 @@ local general = client:General(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `gecko_say` | ``$STRING`` | No |  |
+| `gecko_say` | `string` | No |  |
 
 ### Operations
 
@@ -104,7 +104,7 @@ local general = client:General(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:General():load({ id = "general_id" })
+local result, err = client:General():load()
 ```
 
 ### Common Methods
@@ -147,8 +147,8 @@ local simple = client:Simple(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `bitcoin` | ``$OBJECT`` | No |  |
-| `ethereum` | ``$OBJECT`` | No |  |
+| `bitcoin` | `table` | No |  |
+| `ethereum` | `table` | No |  |
 
 ### Operations
 
@@ -157,7 +157,7 @@ local simple = client:Simple(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Simple():load({ id = "simple_id" })
+local result, err = client:Simple():load()
 ```
 
 ### Common Methods

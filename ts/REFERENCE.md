@@ -129,7 +129,7 @@ const general = client.General()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `gecko_say` | ``$STRING`` | No |  |
+| `gecko_say` | `string` | No |  |
 
 ### Operations
 
@@ -138,7 +138,7 @@ const general = client.General()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.General().load({ id: 'general_id' })
+const result = await client.General().load()
 ```
 
 ### Common Methods
@@ -179,8 +179,8 @@ const simple = client.Simple()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `bitcoin` | ``$OBJECT`` | No |  |
-| `ethereum` | ``$OBJECT`` | No |  |
+| `bitcoin` | `Record<string, any>` | No |  |
+| `ethereum` | `Record<string, any>` | No |  |
 
 ### Operations
 
@@ -189,7 +189,7 @@ const simple = client.Simple()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Simple().load({ id: 'simple_id' })
+const result = await client.Simple().load()
 ```
 
 ### Common Methods

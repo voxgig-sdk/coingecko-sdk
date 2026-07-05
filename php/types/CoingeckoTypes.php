@@ -18,7 +18,7 @@ class General
     public ?string $gecko_say = null;
 }
 
-/** Match filter for General#load (any subset of General fields). */
+/** Request payload for General#load. */
 class GeneralLoadMatch
 {
     public ?string $gecko_say = null;
@@ -31,7 +31,7 @@ class Simple
     public ?array $ethereum = null;
 }
 
-/** Match filter for Simple#load (any subset of Simple fields). */
+/** Request payload for Simple#load. */
 class SimpleLoadMatch
 {
     public ?array $bitcoin = null;

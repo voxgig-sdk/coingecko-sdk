@@ -102,7 +102,7 @@ general := client.General(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `gecko_say` | ``$STRING`` | No |  |
+| `gecko_say` | `string` | No |  |
 
 ### Operations
 
@@ -111,7 +111,7 @@ general := client.General(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.General(nil).Load(map[string]any{"id": "general_id"}, nil)
+result, err := client.General(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -148,8 +148,8 @@ simple := client.Simple(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `bitcoin` | ``$OBJECT`` | No |  |
-| `ethereum` | ``$OBJECT`` | No |  |
+| `bitcoin` | `map[string]any` | No |  |
+| `ethereum` | `map[string]any` | No |  |
 
 ### Operations
 
@@ -158,7 +158,7 @@ simple := client.Simple(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Simple(nil).Load(map[string]any{"id": "simple_id"}, nil)
+result, err := client.Simple(nil).Load(nil, nil)
 ```
 
 ### Common Methods

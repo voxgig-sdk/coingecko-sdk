@@ -13,8 +13,7 @@ type General struct {
 	GeckoSay *string `json:"gecko_say,omitempty"`
 }
 
-// GeneralLoadMatch mirrors the general fields as an all-optional match
-// filter (Go analog of Partial<General>).
+// GeneralLoadMatch is the typed request payload for General.LoadTyped.
 type GeneralLoadMatch struct {
 	GeckoSay *string `json:"gecko_say,omitempty"`
 }
@@ -25,8 +24,7 @@ type Simple struct {
 	Ethereum *map[string]any `json:"ethereum,omitempty"`
 }
 
-// SimpleLoadMatch mirrors the simple fields as an all-optional match
-// filter (Go analog of Partial<Simple>).
+// SimpleLoadMatch is the typed request payload for Simple.LoadTyped.
 type SimpleLoadMatch struct {
 	Bitcoin *map[string]any `json:"bitcoin,omitempty"`
 	Ethereum *map[string]any `json:"ethereum,omitempty"`

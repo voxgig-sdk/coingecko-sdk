@@ -9,12 +9,17 @@ export interface General {
   gecko_say?: string
 }
 
-export type GeneralLoadMatch = Partial<General>
+export interface GeneralLoadMatch {
+  gecko_say?: string
+}
 
 export interface Simple {
   bitcoin?: Record<string, any>
   ethereum?: Record<string, any>
 }
 
-export type SimpleLoadMatch = Partial<Simple>
+export interface SimpleLoadMatch {
+  bitcoin?: Record<string, any>
+  ethereum?: Record<string, any>
+}
 

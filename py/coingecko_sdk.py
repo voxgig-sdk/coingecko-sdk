@@ -221,13 +221,13 @@ class CoingeckoSDK:
 
 
     def General(self, data=None) -> "GeneralEntity":
-        """Entity factory: client.General().list({}) / client.General().load({"id": ...})."""
+        """Entity factory: client.General().list() / client.General().load({"id": ...})."""
         from entity.general_entity import GeneralEntity
         return GeneralEntity(self, data)
 
 
     def Simple(self, data=None) -> "SimpleEntity":
-        """Entity factory: client.Simple().list({}) / client.Simple().load({"id": ...})."""
+        """Entity factory: client.Simple().list() / client.Simple().load({"id": ...})."""
         from entity.simple_entity import SimpleEntity
         return SimpleEntity(self, data)
 

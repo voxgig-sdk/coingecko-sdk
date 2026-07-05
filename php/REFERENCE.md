@@ -50,11 +50,11 @@ Create a new `GeneralEntity` instance. Pass `null` for no initial data.
 
 Create a new `SimpleEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): CoingeckoUtility`
 
 Return a copy of the SDK utility object.
 
@@ -97,7 +97,7 @@ $general = $client->General();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `gecko_say` | ``$STRING`` | No |  |
+| `gecko_say` | `string` | No |  |
 
 ### Operations
 
@@ -106,24 +106,24 @@ $general = $client->General();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->General()->load(["id" => "general_id"]);
+$result = $client->General()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -132,7 +132,7 @@ Set the entity match criteria.
 Create a new `GeneralEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -149,8 +149,8 @@ $simple = $client->Simple();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `bitcoin` | ``$OBJECT`` | No |  |
-| `ethereum` | ``$OBJECT`` | No |  |
+| `bitcoin` | `array` | No |  |
+| `ethereum` | `array` | No |  |
 
 ### Operations
 
@@ -159,24 +159,24 @@ $simple = $client->Simple();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Simple()->load(["id" => "simple_id"]);
+$result = $client->Simple()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -185,7 +185,7 @@ Set the entity match criteria.
 Create a new `SimpleEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

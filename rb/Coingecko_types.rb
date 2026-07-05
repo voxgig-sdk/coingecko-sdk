@@ -17,7 +17,7 @@ General = Struct.new(
   keyword_init: true
 )
 
-# Match filter for General#load (any subset of General fields).
+# Request payload for General#load.
 #
 # @!attribute [rw] gecko_say
 #   @return [String, nil]
@@ -39,7 +39,7 @@ Simple = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Simple#load (any subset of Simple fields).
+# Request payload for Simple#load.
 #
 # @!attribute [rw] bitcoin
 #   @return [Hash, nil]

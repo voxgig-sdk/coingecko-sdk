@@ -10,12 +10,15 @@
 ---@field gecko_say? string
 
 ---@class GeneralLoadMatch
+---@field gecko_say? string
 
 ---@class Simple
 ---@field bitcoin? table
 ---@field ethereum? table
 
 ---@class SimpleLoadMatch
+---@field bitcoin? table
+---@field ethereum? table
 
 local M = {}
 
