@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -347,15 +344,25 @@
           "url": "https://www.coingecko.com/de/api"
         },
         "description": "Powerful API for cryptocurrency data including real-time prices, market data, NFT base prices, trading volume, trading pairs, metadata, historical data, and more. Trusted by thousands of developers in the industry.",
+        "meta_source": "https://www.freepublicapis.com",
+        "security": {
+          "in": "header",
+          "name": "x-cg-demo-api-key",
+          "prefix": "",
+          "scheme": "ApiKeyAuth",
+          "type": "apiKey"
+        },
         "servers": [
           {
             "description": "CoinGecko API v3 Production Server",
             "url": "https://api.coingecko.com/api/v3"
           }
         ],
+        "summary": "Powerful API for cryptocurrency data including real-time prices, market data, NFT base prices, trading volume, trading pairs, metadata, historical data, and more.",
         "termsOfService": "https://www.coingecko.com/en/terms",
         "title": "CoinGecko API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://www.coingecko.com/de/api"
       },
       "option": {},
       "target": {
@@ -408,6 +415,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -458,6 +468,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

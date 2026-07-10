@@ -16,7 +16,7 @@ module CoingeckoConfig
       "options" => {
         "base" => "https://api.coingecko.com/api/v3",
         "auth" => {
-          "prefix" => "Bearer",
+          "prefix" => "",
         },
         "headers" => {
           "content-type" => "application/json",

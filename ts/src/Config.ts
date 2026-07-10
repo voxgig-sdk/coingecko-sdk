@@ -39,7 +39,7 @@ class Config {
     base: 'https://api.coingecko.com/api/v3',
 
     auth: {
-      prefix: 'Bearer',
+      prefix: '',
     },
 
     headers: {
