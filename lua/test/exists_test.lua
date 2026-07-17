@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- Coingecko SDK exists test
 
 local sdk = require("coingecko_sdk")
 
