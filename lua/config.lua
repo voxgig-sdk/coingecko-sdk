@@ -30,7 +30,7 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "gecko_say",
+            ["name"] = "gecko_says",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 0,
@@ -45,6 +45,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/ping",
                 ["parts"] = {
@@ -156,6 +157,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/simple/price",
                 ["parts"] = {

@@ -62,7 +62,7 @@ describe('GeneralEntity', async () => {
     // LOAD
     const general_ref01_ent = client.General()
     const general_ref01_match_dt0: any = {}
-    const general_ref01_data_dt0 = await general_ref01_ent.load(general_ref01_match_dt0)
+    const general_ref01_data_dt0 = (await general_ref01_ent.load(general_ref01_match_dt0)).data()
     assert(null != general_ref01_data_dt0)
 
 

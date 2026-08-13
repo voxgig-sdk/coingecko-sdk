@@ -15,13 +15,13 @@ declare(strict_types=1);
 /** General entity data model. */
 class General
 {
-    public ?string $gecko_say = null;
+    public ?string $gecko_says = null;
 }
 
 /** Request payload for General#load. */
 class GeneralLoadMatch
 {
-    public ?string $gecko_say = null;
+    public ?string $gecko_says = null;
 }
 
 /** Simple entity data model. */

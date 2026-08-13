@@ -230,7 +230,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `gecko_say` |  |
+| `gecko_says` |  |
 
 Operations: Load.
 
@@ -266,7 +266,7 @@ Create an instance: `local general = client:General(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `gecko_say` | `string` |  |
+| `gecko_says` | `string` |  |
 
 #### Example: Load
 

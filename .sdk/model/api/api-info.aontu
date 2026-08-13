@@ -29,3 +29,5 @@ main: {
       website: "https://www.coingecko.com/de/api"
     }
   }
+}
+

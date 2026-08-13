@@ -6,11 +6,11 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface General {
-  gecko_say?: string
+  gecko_says?: string
 }
 
 export interface GeneralLoadMatch {
-  gecko_say?: string
+  gecko_says?: string
 }
 
 export interface Simple {
@@ -21,5 +21,11 @@ export interface Simple {
 export interface SimpleLoadMatch {
   bitcoin?: Record<string, any>
   ethereum?: Record<string, any>
+
+  // Selects a custom action instead of the plain load:
+  //   'price'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 

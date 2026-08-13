@@ -7,10 +7,10 @@
 -- edit by hand.
 
 ---@class General
----@field gecko_say? string
+---@field gecko_says? string
 
 ---@class GeneralLoadMatch
----@field gecko_say? string
+---@field gecko_says? string
 
 ---@class Simple
 ---@field bitcoin? table

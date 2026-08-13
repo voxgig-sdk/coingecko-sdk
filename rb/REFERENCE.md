@@ -98,7 +98,7 @@ general = client.General
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `gecko_say` | `String` | No |  |
+| `gecko_says` | `String` | No |  |
 
 ### Operations
 

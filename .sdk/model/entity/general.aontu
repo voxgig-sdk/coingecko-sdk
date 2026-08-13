@@ -6,7 +6,7 @@ main: kit: entity: general: {
 
   fields: [
     {
-      name: "gecko_say"
+      name: "gecko_says"
       req: false
       type: "`$STRING`"
     }

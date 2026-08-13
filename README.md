@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = CoingeckoSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = CoingeckoSDK.test({
+  entity: {
+    general: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const general = await client.General().load()
-// general is a bare General populated with mock data
+// general is the General entity, populated with mock data
+// — call general.data() for the record itself
 console.log(general)
 ```
 
@@ -190,7 +199,7 @@ $client = new CoingeckoSDK([
 ]);
 
 
-// Load a specific general (returns the bare record; throws on error)
+// Load a specific general (returns the ENTITY; call data_get() for the record; throws on error)
 $general = $client->General()->load();
 print_r($general);
 ```
@@ -222,7 +231,7 @@ client = CoingeckoSDK.new({
 })
 
 
-# Load a specific general (returns the bare record; raises on error)
+# Load a specific general (returns the ENTITY; call data_get for the record)
 general = client.General.load()
 puts general
 ```
@@ -358,6 +367,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://www.coingecko.com/de/api](https://www.coingecko.com/de/api)
 

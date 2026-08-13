@@ -10,19 +10,19 @@
 
 # General entity data model.
 #
-# @!attribute [rw] gecko_say
+# @!attribute [rw] gecko_says
 #   @return [String, nil]
 General = Struct.new(
-  :gecko_say,
+  :gecko_says,
   keyword_init: true
 )
 
 # Request payload for General#load.
 #
-# @!attribute [rw] gecko_say
+# @!attribute [rw] gecko_says
 #   @return [String, nil]
 GeneralLoadMatch = Struct.new(
-  :gecko_say,
+  :gecko_says,
   keyword_init: true
 )
 

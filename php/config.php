@@ -36,7 +36,7 @@ class CoingeckoConfig
           'fields' => [
             [
               'active' => true,
-              'name' => 'gecko_say',
+              'name' => 'gecko_says',
               'req' => false,
               'type' => '`$STRING`',
               'index$' => 0,
@@ -51,6 +51,7 @@ class CoingeckoConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/ping',
                   'parts' => [
@@ -162,6 +163,7 @@ class CoingeckoConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/simple/price',
                   'parts' => [

@@ -2,15 +2,15 @@
   "existing": {
     "general": {
       "GENERAL00": {
-        "gecko_say": "sa",
+        "gecko_says": "sa",
         "id": "GENERAL00"
       },
       "GENERAL01": {
-        "gecko_say": "s14",
+        "gecko_says": "s14",
         "id": "GENERAL01"
       },
       "GENERAL02": {
-        "gecko_say": "s1e",
+        "gecko_says": "s1e",
         "id": "GENERAL02"
       }
     }
@@ -18,7 +18,7 @@
   "new": {
     "general": {
       "general_ref01": {
-        "gecko_say": "s28"
+        "gecko_says": "s28"
       }
     }
   }

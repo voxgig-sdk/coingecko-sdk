@@ -95,7 +95,7 @@ local general = client:General(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `gecko_say` | `string` | No |  |
+| `gecko_says` | `string` | No |  |
 
 ### Operations
 

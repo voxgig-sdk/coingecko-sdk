@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Coingecko SDK exists test
 
 import pytest
 from coingecko_sdk import CoingeckoSDK

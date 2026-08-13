@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'Coingecko',
   }
 
 
@@ -63,7 +63,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "gecko_say",
+          "name": "gecko_says",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
@@ -78,6 +78,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/ping",
               "parts": [
@@ -189,6 +190,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/simple/price",
               "parts": [

@@ -264,7 +264,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"gecko_say"` |  |
+| `"gecko_says"` |  |
 
 Operations: Load.
 
@@ -300,7 +300,7 @@ Create an instance: `general := client.General(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `gecko_say` | `string` |  |
+| `gecko_says` | `string` |  |
 
 #### Example: Load
 

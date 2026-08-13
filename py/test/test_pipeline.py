@@ -16,11 +16,11 @@
 import pytest
 
 from coingecko_sdk import CoingeckoSDK
-from core.error import CoingeckoError
-from core.result import CoingeckoResult
-from core.response import CoingeckoResponse
-from core.spec import CoingeckoSpec
-from feature.base_feature import CoingeckoBaseFeature
+from coingecko_sdk.core.error import CoingeckoError
+from coingecko_sdk.core.result import CoingeckoResult
+from coingecko_sdk.core.response import CoingeckoResponse
+from coingecko_sdk.core.spec import CoingeckoSpec
+from coingecko_sdk.feature.base_feature import CoingeckoBaseFeature
 
 
 def _client():

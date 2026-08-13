@@ -36,7 +36,7 @@ client = CoingeckoSDK.new({
 
 ```ruby
 begin
-  # load returns the bare General record (raises on error).
+  # load returns the ENTITY — call data_get for the General record (raises on error).
   general = client.General.load()
   puts general
 rescue => err
@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = CoingeckoSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 general = client.General.load()
 puts general
 ```
@@ -239,7 +240,7 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `gecko_say` |  |
+| `gecko_says` |  |
 
 Operations: Load.
 
@@ -275,12 +276,12 @@ Create an instance: `general = client.General`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `gecko_say` | `String` |  |
+| `gecko_says` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare General record (raises on error).
+# load returns the ENTITY — call data_get for the General record (raises on error).
 general = client.General.load()
 ```
 
@@ -305,7 +306,7 @@ Create an instance: `simple = client.Simple`
 #### Example: Load
 
 ```ruby
-# load returns the bare Simple record (raises on error).
+# load returns the ENTITY — call data_get for the Simple record (raises on error).
 simple = client.Simple.load()
 ```
 

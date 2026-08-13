@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import CoingeckoControl
-from core.error import CoingeckoError
-from core.result import CoingeckoResult
-from core.spec import CoingeckoSpec
+from coingecko_sdk.config import make_config
+from coingecko_sdk.features import _make_feature
+from coingecko_sdk.core.control import CoingeckoControl
+from coingecko_sdk.core.error import CoingeckoError
+from coingecko_sdk.core.result import CoingeckoResult
+from coingecko_sdk.core.spec import CoingeckoSpec
 
 
 # True when this SDK was generated with the named feature.

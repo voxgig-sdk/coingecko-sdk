@@ -123,7 +123,8 @@ Create a mock client for unit testing — no server required:
 const client = CoingeckoSDK.test()
 
 const general = await client.General().load()
-// general is a bare entity populated with mock response data
+// general is the entity, populated with mock response data
+// — call general.data() for the record itself
 console.log(general)
 ```
 
@@ -291,7 +292,7 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `gecko_say` |  |
+| `gecko_says` |  |
 
 Operations: load.
 
@@ -327,7 +328,7 @@ Create an instance: `const general = client.General()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `gecko_say` | `string` |  |
+| `gecko_says` | `string` |  |
 
 #### Example: Load
 

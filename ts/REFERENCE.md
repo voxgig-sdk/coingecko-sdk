@@ -129,7 +129,7 @@ const general = client.General()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `gecko_say` | `string` | No |  |
+| `gecko_says` | `string` | No |  |
 
 ### Operations
 
@@ -181,6 +181,26 @@ const simple = client.Simple()
 | --- | --- | --- | --- |
 | `bitcoin` | `Record<string, any>` | No |  |
 | `ethereum` | `Record<string, any>` | No |  |
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `price` | `/simple/price` | `client.Simple().load({ $action: 'price', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Simple record — check the API definition for its shape.
+
+```ts
+const result = await client.Simple().load({
+  $action: 'price',
+  /* ...the action's own arguments */
+})
+```
 
 ### Operations
 
