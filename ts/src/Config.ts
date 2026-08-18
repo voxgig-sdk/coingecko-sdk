@@ -36,7 +36,7 @@ class Config {
 
 
   options = {
-    base: 'https://api.coingecko.com/api/v3',
+    base: "https://api.coingecko.com/api/v3",
 
     auth: {
       prefix: '',
@@ -62,11 +62,8 @@ class Config {
     "general": {
       "fields": [
         {
-          "active": true,
           "name": "gecko_says",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 0
+          "type": "`$STRING`"
         }
       ],
       "name": "general",
@@ -76,7 +73,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {},
               "kind": "http",
               "method": "GET",
@@ -88,11 +84,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {
@@ -102,18 +96,12 @@ class Config {
     "simple": {
       "fields": [
         {
-          "active": true,
           "name": "bitcoin",
-          "req": false,
-          "type": "`$OBJECT`",
-          "index$": 0
+          "type": "`$OBJECT`"
         },
         {
-          "active": true,
           "name": "ethereum",
-          "req": false,
-          "type": "`$OBJECT`",
-          "index$": 1
+          "type": "`$OBJECT`"
         }
       ],
       "name": "simple",
@@ -123,11 +111,9 @@ class Config {
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {
                 "query": [
                   {
-                    "active": true,
                     "example": "bitcoin,ethereum",
                     "kind": "query",
                     "name": "ids",
@@ -136,51 +122,40 @@ class Config {
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "include_24hr_change",
                     "orig": "include_24hr_change",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "include_24hr_vol",
                     "orig": "include_24hr_vol",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "include_last_updated_at",
                     "orig": "include_last_updated_at",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "example": false,
                     "kind": "query",
                     "name": "include_market_cap",
                     "orig": "include_market_cap",
-                    "reqd": false,
                     "type": "`$BOOLEAN`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "precision",
                     "orig": "precision",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "usd,eur",
                     "kind": "query",
                     "name": "vs_currency",
@@ -212,11 +187,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {

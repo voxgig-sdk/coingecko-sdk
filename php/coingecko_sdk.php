@@ -40,7 +40,7 @@ class CoingeckoSDK
         $utility = new CoingeckoUtility();
         $this->_utility = $utility;
 
-        $config = CoingeckoConfig::make_config();
+        $config = CoingeckoConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

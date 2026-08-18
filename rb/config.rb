@@ -1,6 +1,20 @@
 # Coingecko SDK configuration
 
 module CoingeckoConfig
+  # Return the process-wide config, built once on first use. The SDK reads
+  # the config on every request and never writes to it, so one instance is
+  # shared by every client rather than rebuilt per client.
+  #
+  # The returned hash is shared: treat it as read-only. Callers that need to
+  # mutate should use make_config, which always returns a fresh copy.
+  def self.shared_config
+    @shared_config ||= make_config
+  end
+
+
+  # Build a fresh, fully materialised config hash. Every call rebuilds the
+  # whole structure, so prefer shared_config unless you need a private copy
+  # you intend to mutate.
   def self.make_config
     {
       "main" => {
@@ -30,11 +44,8 @@ module CoingeckoConfig
         "general" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "gecko_says",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
           ],
           "name" => "general",
@@ -44,7 +55,6 @@ module CoingeckoConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
@@ -57,10 +67,8 @@ module CoingeckoConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -70,18 +78,12 @@ module CoingeckoConfig
         "simple" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "bitcoin",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "ethereum",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 1,
             },
           ],
           "name" => "simple",
@@ -91,11 +93,9 @@ module CoingeckoConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "example" => "bitcoin,ethereum",
                         "kind" => "query",
                         "name" => "ids",
@@ -104,51 +104,40 @@ module CoingeckoConfig
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "example" => false,
                         "kind" => "query",
                         "name" => "include_24hr_change",
                         "orig" => "include_24hr_change",
-                        "reqd" => false,
                         "type" => "`$BOOLEAN`",
                       },
                       {
-                        "active" => true,
                         "example" => false,
                         "kind" => "query",
                         "name" => "include_24hr_vol",
                         "orig" => "include_24hr_vol",
-                        "reqd" => false,
                         "type" => "`$BOOLEAN`",
                       },
                       {
-                        "active" => true,
                         "example" => false,
                         "kind" => "query",
                         "name" => "include_last_updated_at",
                         "orig" => "include_last_updated_at",
-                        "reqd" => false,
                         "type" => "`$BOOLEAN`",
                       },
                       {
-                        "active" => true,
                         "example" => false,
                         "kind" => "query",
                         "name" => "include_market_cap",
                         "orig" => "include_market_cap",
-                        "reqd" => false,
                         "type" => "`$BOOLEAN`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "precision",
                         "orig" => "precision",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "example" => "usd,eur",
                         "kind" => "query",
                         "name" => "vs_currency",
@@ -181,10 +170,8 @@ module CoingeckoConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {

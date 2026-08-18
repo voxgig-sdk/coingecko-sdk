@@ -28,7 +28,7 @@ class CoingeckoSDK
     utility = CoingeckoUtility.new
     @_utility = utility
 
-    config = CoingeckoConfig.make_config
+    config = CoingeckoConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

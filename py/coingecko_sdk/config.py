@@ -1,7 +1,30 @@
 # Coingecko SDK configuration
 
 
+_shared_config = None
+
+
+def shared_config():
+    """Return the process-wide config, built once on first use.
+
+    The SDK reads the config on every request and never writes to it, so one
+    instance is shared by every client rather than rebuilt per client.
+
+    The returned dict is shared: treat it as read-only. Callers that need to
+    mutate should use make_config, which always returns a fresh copy.
+    """
+    global _shared_config
+    if _shared_config is None:
+        _shared_config = make_config()
+    return _shared_config
+
+
 def make_config():
+    """Build a fresh, fully materialised config dict.
+
+    Every call rebuilds the whole structure, so prefer shared_config unless
+    you need a private copy you intend to mutate.
+    """
     return {
         "main": {
             "name": "Coingecko",
@@ -30,11 +53,8 @@ def make_config():
       "general": {
         "fields": [
           {
-            "active": True,
             "name": "gecko_says",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 0,
           },
         ],
         "name": "general",
@@ -44,7 +64,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {},
                 "kind": "http",
                 "method": "GET",
@@ -57,10 +76,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
@@ -70,18 +87,12 @@ def make_config():
       "simple": {
         "fields": [
           {
-            "active": True,
             "name": "bitcoin",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "ethereum",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 1,
           },
         ],
         "name": "simple",
@@ -91,11 +102,9 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "active": True,
                 "args": {
                   "query": [
                     {
-                      "active": True,
                       "example": "bitcoin,ethereum",
                       "kind": "query",
                       "name": "ids",
@@ -104,51 +113,40 @@ def make_config():
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "example": False,
                       "kind": "query",
                       "name": "include_24hr_change",
                       "orig": "include_24hr_change",
-                      "reqd": False,
                       "type": "`$BOOLEAN`",
                     },
                     {
-                      "active": True,
                       "example": False,
                       "kind": "query",
                       "name": "include_24hr_vol",
                       "orig": "include_24hr_vol",
-                      "reqd": False,
                       "type": "`$BOOLEAN`",
                     },
                     {
-                      "active": True,
                       "example": False,
                       "kind": "query",
                       "name": "include_last_updated_at",
                       "orig": "include_last_updated_at",
-                      "reqd": False,
                       "type": "`$BOOLEAN`",
                     },
                     {
-                      "active": True,
                       "example": False,
                       "kind": "query",
                       "name": "include_market_cap",
                       "orig": "include_market_cap",
-                      "reqd": False,
                       "type": "`$BOOLEAN`",
                     },
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "precision",
                       "orig": "precision",
-                      "reqd": False,
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "example": "usd,eur",
                       "kind": "query",
                       "name": "vs_currency",
@@ -181,10 +179,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "load",
           },
         },
         "relations": {
