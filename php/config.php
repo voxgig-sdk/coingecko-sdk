@@ -33,6 +33,9 @@ class CoingeckoConfig
         return [
             "main" => [
                 "name" => "Coingecko",
+                "slug" => "coingecko",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
