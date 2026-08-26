@@ -42,6 +42,7 @@ class CoingeckoConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
