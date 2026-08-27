@@ -19,8 +19,13 @@ export interface Simple {
 }
 
 export interface SimpleLoadMatch {
-  bitcoin?: Record<string, any>
-  ethereum?: Record<string, any>
+  ids: string
+  include_24hr_change?: boolean
+  include_24hr_vol?: boolean
+  include_last_updated_at?: boolean
+  include_market_cap?: boolean
+  precision?: string
+  vs_currency: string
 
   // Selects a custom action instead of the plain load:
   //   'price'

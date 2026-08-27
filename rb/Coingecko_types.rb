@@ -41,14 +41,34 @@ Simple = Struct.new(
 
 # Request payload for Simple#load.
 #
-# @!attribute [rw] bitcoin
-#   @return [Hash, nil]
+# @!attribute [rw] ids
+#   @return [String]
 #
-# @!attribute [rw] ethereum
-#   @return [Hash, nil]
+# @!attribute [rw] include_24hr_change
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] include_24hr_vol
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] include_last_updated_at
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] include_market_cap
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] precision
+#   @return [String, nil]
+#
+# @!attribute [rw] vs_currency
+#   @return [String]
 SimpleLoadMatch = Struct.new(
-  :bitcoin,
-  :ethereum,
+  :ids,
+  :include_24hr_change,
+  :include_24hr_vol,
+  :include_last_updated_at,
+  :include_market_cap,
+  :precision,
+  :vs_currency,
   keyword_init: true
 )
 

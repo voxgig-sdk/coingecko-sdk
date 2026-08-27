@@ -29,6 +29,14 @@ class Simple(TypedDict, total=False):
     ethereum: dict
 
 
-class SimpleLoadMatch(TypedDict, total=False):
-    bitcoin: dict
-    ethereum: dict
+class SimpleLoadMatchRequired(TypedDict):
+    ids: str
+    vs_currency: str
+
+
+class SimpleLoadMatch(SimpleLoadMatchRequired, total=False):
+    include_24hr_change: bool
+    include_24hr_vol: bool
+    include_last_updated_at: bool
+    include_market_cap: bool
+    precision: str

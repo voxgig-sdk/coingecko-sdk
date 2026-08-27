@@ -17,8 +17,13 @@
 ---@field ethereum? table
 
 ---@class SimpleLoadMatch
----@field bitcoin? table
----@field ethereum? table
+---@field ids string
+---@field include_24hr_change? boolean
+---@field include_24hr_vol? boolean
+---@field include_last_updated_at? boolean
+---@field include_market_cap? boolean
+---@field precision? string
+---@field vs_currency string
 
 local M = {}
 

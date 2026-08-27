@@ -30,8 +30,13 @@ type Simple struct {
 
 // SimpleLoadMatch is the typed request payload for Simple.LoadTyped.
 type SimpleLoadMatch struct {
-	Bitcoin *map[string]any `json:"bitcoin,omitempty"`
-	Ethereum *map[string]any `json:"ethereum,omitempty"`
+	Ids string `json:"ids"`
+	Include24hrChange *bool `json:"include_24hr_change,omitempty"`
+	Include24hrVol *bool `json:"include_24hr_vol,omitempty"`
+	IncludeLastUpdatedAt *bool `json:"include_last_updated_at,omitempty"`
+	IncludeMarketCap *bool `json:"include_market_cap,omitempty"`
+	Precision *string `json:"precision,omitempty"`
+	VsCurrency string `json:"vs_currency"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

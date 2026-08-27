@@ -34,7 +34,12 @@ class Simple
 /** Request payload for Simple#load. */
 class SimpleLoadMatch
 {
-    public ?array $bitcoin = null;
-    public ?array $ethereum = null;
+    public string $ids;
+    public ?bool $include_24hr_change = null;
+    public ?bool $include_24hr_vol = null;
+    public ?bool $include_last_updated_at = null;
+    public ?bool $include_market_cap = null;
+    public ?string $precision = null;
+    public string $vs_currency;
 }
 
