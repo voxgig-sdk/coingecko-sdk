@@ -51,13 +51,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/ping",
-                ["parts"] = {
-                  "ping",
+                ["segments"] = {
+                  {
+                    ["lit"] = "ping",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "ping",
                 },
               },
             },
@@ -142,9 +147,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/simple/price",
-                ["parts"] = {
-                  "simple",
-                  "price",
+                ["segments"] = {
+                  {
+                    ["lit"] = "simple",
+                  },
+                  {
+                    ["lit"] = "price",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "price",
@@ -161,6 +170,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "simple",
+                  "price",
                 },
               },
             },

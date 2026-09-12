@@ -77,13 +77,18 @@ class CoingeckoConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/ping',
-                  'parts' => [
-                    'ping',
+                  'segments' => [
+                    [
+                      'lit' => 'ping',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'ping',
                   ],
                 ],
               ],
@@ -168,9 +173,13 @@ class CoingeckoConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/simple/price',
-                  'parts' => [
-                    'simple',
-                    'price',
+                  'segments' => [
+                    [
+                      'lit' => 'simple',
+                    ],
+                    [
+                      'lit' => 'price',
+                    ],
                   ],
                   'select' => [
                     '$action' => 'price',
@@ -187,6 +196,10 @@ class CoingeckoConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'simple',
+                    'price',
                   ],
                 ],
               ],

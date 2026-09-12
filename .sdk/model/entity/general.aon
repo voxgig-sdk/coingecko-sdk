@@ -20,8 +20,10 @@ main: kit: entity: general: {
         {
           method: "GET"
           orig: "/ping"
-          parts: [
-            "ping"
+          segments: [
+            {
+              lit: "ping"
+            }
           ]
           transform: {
             req: "`reqdata`"

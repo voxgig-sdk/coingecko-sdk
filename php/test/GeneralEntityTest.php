@@ -84,7 +84,7 @@ function general_basic_setup($extra)
         "COINGECKO_TEST_GENERAL_ENTID" => $idmap,
         "COINGECKO_TEST_LIVE" => "FALSE",
         "COINGECKO_TEST_EXPLAIN" => "FALSE",
-        "COINGECKO_APIKEY" => "NONE",
+        "COINGECKO_APIKEY" => "",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -95,10 +95,17 @@ function general_basic_setup($extra)
 
     if ($env["COINGECKO_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
+            // FIRST, so the generated fields below win: sdk-test-control.json's
+            // test.client.options adds to the live client, it does not redirect it.
+            Runner::live_client_options(),
             [
                 "apikey" => $env["COINGECKO_APIKEY"],
             ],
-            $extra ?? [],
+            // ismap, not a plain "?? []" default: an empty PHP array is a
+            // LIST, and a non-map later entry REPLACES the accumulated map in
+            // merge - so the no-extras call discarded live_client_options()
+            // and the apikey/server map above it.
+            Vs::ismap($extra) ? $extra : new \stdClass(),
         ]);
         $client = new CoingeckoSDK(Helpers::to_map($merged_opts));
     }

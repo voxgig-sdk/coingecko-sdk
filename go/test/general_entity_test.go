@@ -50,7 +50,7 @@ func TestGeneralEntity(t *testing.T) {
 		client := setup.client
 
 		// Bootstrap entity data from existing test data (no create step in flow).
-		generalRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.general", setup.data)))
+		generalRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath(setup.data, "existing.general")))
 		var generalRef01Data map[string]any
 		if len(generalRef01DataRaw) > 0 {
 			generalRef01Data = core.ToMapAny(generalRef01DataRaw[0][1])
@@ -97,7 +97,7 @@ func generalBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"general01", "general02", "general03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -117,7 +117,7 @@ func generalBasicSetup(extra map[string]any) *entityTestSetup {
 		"COINGECKO_TEST_GENERAL_ENTID": idmap,
 		"COINGECKO_TEST_LIVE":      "FALSE",
 		"COINGECKO_TEST_EXPLAIN":   "FALSE",
-		"COINGECKO_APIKEY":         "NONE",
+		"COINGECKO_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["COINGECKO_TEST_GENERAL_ENTID"])
@@ -126,11 +126,23 @@ func generalBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["COINGECKO_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["COINGECKO_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewCoingeckoSDK(core.ToMapAny(mergedOpts))
 	}

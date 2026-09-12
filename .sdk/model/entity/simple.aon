@@ -84,9 +84,13 @@ main: kit: entity: simple: {
           }
           method: "GET"
           orig: "/simple/price"
-          parts: [
-            "simple"
-            "price"
+          segments: [
+            {
+              lit: "simple"
+            }
+            {
+              lit: "price"
+            }
           ]
           select: {
             "$action": "price"

@@ -81,7 +81,7 @@ def general_basic_setup(extra)
     "COINGECKO_TEST_GENERAL_ENTID" => idmap,
     "COINGECKO_TEST_LIVE" => "FALSE",
     "COINGECKO_TEST_EXPLAIN" => "FALSE",
-    "COINGECKO_APIKEY" => "NONE",
+    "COINGECKO_APIKEY" => "",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -92,6 +92,9 @@ def general_basic_setup(extra)
 
   if env["COINGECKO_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
+      # FIRST, so the generated fields below win: sdk-test-control.json's
+      # test.client.options adds to the live client, it does not redirect it.
+      Runner.live_client_options,
       {
         "apikey" => env["COINGECKO_APIKEY"],
       },

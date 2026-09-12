@@ -58,15 +58,18 @@ def _general_direct_setup(mockres):
     env = runner.env_override({
         "COINGECKO_TEST_GENERAL_ENTID": {},
         "COINGECKO_TEST_LIVE": "FALSE",
-        "COINGECKO_APIKEY": "NONE",
+        "COINGECKO_APIKEY": "",
     })
 
     live = env.get("COINGECKO_TEST_LIVE") == "TRUE"
 
     if live:
-        merged_opts = {
+        # sdk-test-control.json's test.client.options seeds the live
+        # client; the generated fields below overwrite anything they name.
+        merged_opts = dict(runner.live_client_options())
+        merged_opts.update({
             "apikey": env.get("COINGECKO_APIKEY"),
-        }
+        })
         client = CoingeckoSDK(merged_opts)
         return {
             "client": client,
