@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { CoingeckoSDK } from '@voxgig-sdk/coingecko'
+import { CoingeckoSDK } from '@voxgig-sdk/coingecko-sdk'
 
 const client = new CoingeckoSDK({
   apikey: process.env.COINGECKO_APIKEY,
@@ -443,7 +443,7 @@ coingecko/
 Import the SDK from the package root:
 
 ```ts
-import { CoingeckoSDK } from '@voxgig-sdk/coingecko'
+import { CoingeckoSDK } from '@voxgig-sdk/coingecko-sdk'
 ```
 
 ### Entity state

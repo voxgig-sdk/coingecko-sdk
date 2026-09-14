@@ -1,5 +1,5 @@
 {
-  "name": "@voxgig-sdk/coingecko",
+  "name": "@voxgig-sdk/coingecko-sdk",
   "version": "0.0.1",
   "description": "Unofficial generated TypeScript SDK for the CoinGecko public API. Not affiliated with or endorsed by the upstream API provider.",
   "keywords": [

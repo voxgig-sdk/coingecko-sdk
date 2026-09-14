@@ -105,7 +105,7 @@ local result, err = client:General():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/coingecko` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coingecko-sdk/releases) |
+| TypeScript | `@voxgig-sdk/coingecko-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coingecko-sdk/releases) |
 | Python | `voxgig-sdk-coingecko` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coingecko-sdk/releases) |
 | PHP | `voxgig-sdk/coingecko` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coingecko-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/coingecko-sdk/go` | `go get github.com/voxgig-sdk/coingecko-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:General():load()
 ### TypeScript
 
 ```ts
-import { CoingeckoSDK } from '@voxgig-sdk/coingecko'
+import { CoingeckoSDK } from '@voxgig-sdk/coingecko-sdk'
 
 const client = new CoingeckoSDK({
   apikey: process.env.COINGECKO_APIKEY,
