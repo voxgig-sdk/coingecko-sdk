@@ -4,7 +4,10 @@ declare(strict_types=1);
 // Coingecko SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class CoingeckoFeatures
@@ -14,8 +17,14 @@ class CoingeckoFeatures
         switch ($name) {
             case "base":
                 return new CoingeckoBaseFeature();
+            case "ratelimit":
+                return new CoingeckoRatelimitFeature();
+            case "retry":
+                return new CoingeckoRetryFeature();
             case "test":
                 return new CoingeckoTestFeature();
+            case "timeout":
+                return new CoingeckoTimeoutFeature();
             default:
                 return new CoingeckoBaseFeature();
         }
@@ -31,7 +40,10 @@ class CoingeckoFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

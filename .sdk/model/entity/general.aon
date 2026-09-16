@@ -18,6 +18,12 @@ main: kit: entity: general: {
       name: "load"
       points: [
         {
+          contract: {
+            id: "GET /ping"
+            json: "{\"operationId\":\"ping\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"gecko_says\":{\"example\":\"(V3) To the Moon!\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"API server is alive\"}},\"securitySchemes\":{\"ApiKeyAuth\":{\"description\":\"Optional API key for higher rate limits (Pro accounts)\",\"in\":\"header\",\"name\":\"x-cg-demo-api-key\",\"type\":\"apiKey\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/ping"
           segments: [

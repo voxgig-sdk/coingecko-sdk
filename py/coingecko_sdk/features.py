@@ -1,12 +1,18 @@
 # Coingecko SDK feature factory
 
 from coingecko_sdk.feature.base_feature import CoingeckoBaseFeature
+from coingecko_sdk.feature.ratelimit_feature import CoingeckoRatelimitFeature
+from coingecko_sdk.feature.retry_feature import CoingeckoRetryFeature
 from coingecko_sdk.feature.test_feature import CoingeckoTestFeature
+from coingecko_sdk.feature.timeout_feature import CoingeckoTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: CoingeckoBaseFeature(),
+    "ratelimit": lambda: CoingeckoRatelimitFeature(),
+    "retry": lambda: CoingeckoRetryFeature(),
     "test": lambda: CoingeckoTestFeature(),
+    "timeout": lambda: CoingeckoTimeoutFeature(),
 }
 
 
