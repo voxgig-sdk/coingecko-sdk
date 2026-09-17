@@ -24,9 +24,8 @@ class GeneralLoadMatch(TypedDict, total=False):
     gecko_says: str
 
 
-class Simple(TypedDict, total=False):
-    bitcoin: dict
-    ethereum: dict
+class Simple(TypedDict):
+    pass
 
 
 class SimpleLoadMatchRequired(TypedDict):

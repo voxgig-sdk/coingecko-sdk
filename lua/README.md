@@ -240,8 +240,6 @@ API path: `/ping`
 
 | Field | Description |
 | --- | --- |
-| `bitcoin` |  |
-| `ethereum` |  |
 
 Operations: Load.
 
@@ -284,13 +282,6 @@ Create an instance: `local simple = client:Simple(nil)`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `bitcoin` | `table` |  |
-| `ethereum` | `table` |  |
 
 #### Example: Load
 
@@ -441,6 +432,7 @@ Use `helpers.to_map()` to safely validate that a value is a table.
 lua/
 ├── coingecko_sdk.lua    -- Main SDK module
 ├── config.lua               -- Configuration
+├── schema.lua               -- Generated option + entity specs
 ├── features.lua             -- Feature factory
 ├── core/                    -- Core types and context
 ├── entity/                  -- Entity implementations

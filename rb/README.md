@@ -250,8 +250,6 @@ API path: `/ping`
 
 | Field | Description |
 | --- | --- |
-| `bitcoin` |  |
-| `ethereum` |  |
 
 Operations: Load.
 
@@ -295,13 +293,6 @@ Create an instance: `simple = client.Simple`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `bitcoin` | `Hash` |  |
-| `ethereum` | `Hash` |  |
 
 #### Example: Load
 
@@ -453,6 +444,7 @@ Use `Helpers.to_map()` to safely validate that a value is a hash.
 rb/
 ├── Coingecko_sdk.rb       -- Main SDK module
 ├── config.rb                  -- Configuration
+├── schema.rb                  -- Generated option + entity specs
 ├── features.rb                -- Feature factory
 ├── core/                      -- Core types and context
 ├── entity/                    -- Entity implementations

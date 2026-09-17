@@ -27,8 +27,6 @@ class GeneralLoadMatch
 /** Simple entity data model. */
 class Simple
 {
-    public ?array $bitcoin = null;
-    public ?array $ethereum = null;
 }
 
 /** Request payload for Simple#load. */

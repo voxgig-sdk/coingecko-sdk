@@ -150,13 +150,6 @@ simple := client.Simple(nil)
 fmt.Println(simple.GetName()) // "simple"
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `bitcoin` | `map[string]any` | No |  |
-| `ethereum` | `map[string]any` | No |  |
-
 ### Operations
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`

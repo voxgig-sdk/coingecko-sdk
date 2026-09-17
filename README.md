@@ -105,12 +105,12 @@ local result, err = client:General():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/coingecko-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coingecko-sdk/releases) |
-| Python | `voxgig-sdk-coingecko` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coingecko-sdk/releases) |
-| PHP | `voxgig-sdk/coingecko` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coingecko-sdk/releases) |
+| TypeScript | `@voxgig-sdk/coingecko-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coingecko-sdk/tags) |
+| Python | `voxgig-sdk-coingecko` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coingecko-sdk/tags) |
+| PHP | `voxgig-sdk/coingecko` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coingecko-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/coingecko-sdk/go` | `go get github.com/voxgig-sdk/coingecko-sdk/go@latest` |
-| Ruby | `voxgig-sdk-coingecko` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coingecko-sdk/releases) |
-| Lua | `voxgig-sdk-coingecko` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coingecko-sdk/releases) |
+| Ruby | `voxgig-sdk-coingecko` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coingecko-sdk/tags) |
+| Lua | `voxgig-sdk-coingecko` | publish pending — [install from git tag](https://github.com/voxgig-sdk/coingecko-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/coingecko-sdk/go-cli` | `go install github.com/voxgig-sdk/coingecko-sdk/go-cli/cmd/coingecko@latest` |
 | Go MCP server | `github.com/voxgig-sdk/coingecko-sdk/go-mcp` | `go get github.com/voxgig-sdk/coingecko-sdk/go-mcp@latest` |
 

@@ -307,8 +307,6 @@ API path: `/ping`
 
 | Field | Description |
 | --- | --- |
-| `bitcoin` |  |
-| `ethereum` |  |
 
 Operations: load.
 
@@ -351,13 +349,6 @@ Create an instance: `const simple = client.Simple()`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `bitcoin` | `Record<string, any>` |  |
-| `ethereum` | `Record<string, any>` |  |
 
 #### Example: Load
 

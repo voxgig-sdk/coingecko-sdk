@@ -2,28 +2,19 @@
   "existing": {
     "simple": {
       "SIMPLE00": {
-        "bitcoin": {},
-        "ethereum": {},
         "id": "SIMPLE00"
       },
       "SIMPLE01": {
-        "bitcoin": {},
-        "ethereum": {},
         "id": "SIMPLE01"
       },
       "SIMPLE02": {
-        "bitcoin": {},
-        "ethereum": {},
         "id": "SIMPLE02"
       }
     }
   },
   "new": {
     "simple": {
-      "simple_ref01": {
-        "bitcoin": {},
-        "ethereum": {}
-      }
+      "simple_ref01": {}
     }
   },
   "requests": {

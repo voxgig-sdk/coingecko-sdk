@@ -1,7 +1,7 @@
 # Coingecko SDK utility: prepare_auth
 require_relative 'struct/voxgig_struct'
 module CoingeckoUtilities
-  HEADER_AUTH = "authorization"
+  HEADER_AUTH = "x-cg-demo-api-key"
   OPTION_APIKEY = "apikey"
   NOT_FOUND = "__NOTFOUND__"
 

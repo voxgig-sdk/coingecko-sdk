@@ -1,4 +1,4 @@
 # Entity Models
 
-@"general.aon"
-@"simple.aon"
+@"./general.aon"
+@"./simple.aon"

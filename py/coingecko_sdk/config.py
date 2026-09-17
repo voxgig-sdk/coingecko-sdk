@@ -106,6 +106,7 @@ def make_config():
             "base": "https://api.coingecko.com/api/v3",
             "auth": {
                 "prefix": "",
+                "name": "x-cg-demo-api-key",
             },
             "headers": {
         "content-type": "application/json",
@@ -156,16 +157,7 @@ def make_config():
         },
       },
       "simple": {
-        "fields": [
-          {
-            "name": "bitcoin",
-            "type": "`$OBJECT`",
-          },
-          {
-            "name": "ethereum",
-            "type": "`$OBJECT`",
-          },
-        ],
+        "fields": [],
         "name": "simple",
         "op": {
           "load": {

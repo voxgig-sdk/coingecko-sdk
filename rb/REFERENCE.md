@@ -146,13 +146,6 @@ Return the entity name.
 simple = client.Simple
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `bitcoin` | `Hash` | No |  |
-| `ethereum` | `Hash` | No |  |
-
 ### Operations
 
 #### `load(reqmatch, ctrl = nil) -> result`

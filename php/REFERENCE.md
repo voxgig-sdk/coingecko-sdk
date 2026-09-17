@@ -145,13 +145,6 @@ Return the entity name.
 $simple = $client->Simple();
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `bitcoin` | `array` | No |  |
-| `ethereum` | `array` | No |  |
-
 ### Operations
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`

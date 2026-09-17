@@ -13,8 +13,6 @@
 ---@field gecko_says? string
 
 ---@class Simple
----@field bitcoin? table
----@field ethereum? table
 
 ---@class SimpleLoadMatch
 ---@field ids string

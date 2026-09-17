@@ -27,17 +27,8 @@ GeneralLoadMatch = Struct.new(
 )
 
 # Simple entity data model.
-#
-# @!attribute [rw] bitcoin
-#   @return [Hash, nil]
-#
-# @!attribute [rw] ethereum
-#   @return [Hash, nil]
-Simple = Struct.new(
-  :bitcoin,
-  :ethereum,
-  keyword_init: true
-)
+class Simple
+end
 
 # Request payload for Simple#load.
 #

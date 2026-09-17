@@ -14,8 +14,6 @@ export interface GeneralLoadMatch {
 }
 
 export interface Simple {
-  bitcoin?: Record<string, any>
-  ethereum?: Record<string, any>
 }
 
 export interface SimpleLoadMatch {

@@ -4,19 +4,6 @@ main: kit: entity: simple: {
 
   alias: field: {}
 
-  fields: [
-    {
-      name: "bitcoin"
-      req: false
-      type: "`$OBJECT`"
-    }
-    {
-      name: "ethereum"
-      req: false
-      type: "`$OBJECT`"
-    }
-  ]
-
   name: "simple"
   op: {
     load: {

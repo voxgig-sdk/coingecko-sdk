@@ -123,6 +123,7 @@ class Config {
 
     auth: {
       prefix: '',
+      name: 'x-cg-demo-api-key',
     },
 
     headers: {
@@ -131,12 +132,12 @@ class Config {
 
     entity: {
       
-      general: {
-      },
-
-      simple: {
-      },
-
+        general: {
+        },
+  
+        simple: {
+        },
+  
     }
   }
 
@@ -182,16 +183,7 @@ class Config {
       }
     },
     "simple": {
-      "fields": [
-        {
-          "name": "bitcoin",
-          "type": "`$OBJECT`"
-        },
-        {
-          "name": "ethereum",
-          "type": "`$OBJECT`"
-        }
-      ],
+      "fields": [],
       "name": "simple",
       "op": {
         "load": {

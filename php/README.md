@@ -260,8 +260,6 @@ API path: `/ping`
 
 | Field | Description |
 | --- | --- |
-| `bitcoin` |  |
-| `ethereum` |  |
 
 Operations: Load.
 
@@ -305,13 +303,6 @@ Create an instance: `$simple = $client->Simple();`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `bitcoin` | `array` |  |
-| `ethereum` | `array` |  |
 
 #### Example: Load
 
@@ -463,6 +454,7 @@ Use `Helpers::to_map()` to safely validate that a value is an array.
 php/
 ├── coingecko_sdk.php          -- Main SDK class
 ├── config.php                     -- Configuration
+├── schema.php                     -- Generated option + entity specs
 ├── features.php                   -- Feature factory
 ├── core/                          -- Core types and context
 ├── entity/                        -- Entity implementations

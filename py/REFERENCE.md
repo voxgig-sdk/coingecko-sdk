@@ -139,13 +139,6 @@ Return the entity name.
 simple = client.Simple()
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `bitcoin` | `dict` | No |  |
-| `ethereum` | `dict` | No |  |
-
 ### Operations
 
 #### `load(reqmatch, ctrl=None) -> dict`

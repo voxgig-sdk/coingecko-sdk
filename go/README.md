@@ -274,8 +274,6 @@ API path: `/ping`
 
 | Field | Description |
 | --- | --- |
-| `"bitcoin"` |  |
-| `"ethereum"` |  |
 
 Operations: Load.
 
@@ -322,13 +320,6 @@ Create an instance: `simple := client.Simple(nil)`
 | Method | Description |
 | --- | --- |
 | `Load(match, ctrl)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `bitcoin` | `map[string]any` |  |
-| `ethereum` | `map[string]any` |  |
 
 #### Example: Load
 

@@ -24,8 +24,6 @@ type GeneralLoadMatch struct {
 
 // Simple is the typed data model for the simple entity.
 type Simple struct {
-	Bitcoin *map[string]any `json:"bitcoin,omitempty"`
-	Ethereum *map[string]any `json:"ethereum,omitempty"`
 }
 
 // SimpleLoadMatch is the typed request payload for Simple.LoadTyped.

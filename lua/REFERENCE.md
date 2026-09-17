@@ -143,13 +143,6 @@ Return the entity name.
 local simple = client:Simple(nil)
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `bitcoin` | `table` | No |  |
-| `ethereum` | `table` | No |  |
-
 ### Operations
 
 #### `load(reqmatch, ctrl) -> any, err`

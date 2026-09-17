@@ -257,8 +257,6 @@ API path: `/ping`
 
 | Field | Description |
 | --- | --- |
-| `bitcoin` |  |
-| `ethereum` |  |
 
 Operations: Load.
 
@@ -301,13 +299,6 @@ Create an instance: `simple = client.Simple()`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `bitcoin` | `dict` |  |
-| `ethereum` | `dict` |  |
 
 #### Example: Load
 
@@ -458,6 +449,7 @@ Use `helpers.to_map()` to safely validate that a value is a dict.
 py/
 ├── coingecko_sdk.py         -- Main SDK module
 ├── config.py                    -- Configuration
+├── schema.py                    -- Generated option + entity specs
 ├── features.py                  -- Feature factory
 ├── core/                        -- Core types and context
 ├── entity/                      -- Entity implementations

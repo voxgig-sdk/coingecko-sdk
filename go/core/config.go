@@ -81,6 +81,7 @@ func MakeConfig() map[string]any {
 			"base": "https://api.coingecko.com/api/v3",
 			"auth": map[string]any{
 				"prefix": "",
+				"name": "x-cg-demo-api-key",
 			},
 			"headers": map[string]any{
 				"content-type": "application/json",
@@ -131,16 +132,7 @@ func MakeConfig() map[string]any {
 				},
 			},
 			"simple": map[string]any{
-				"fields": []any{
-					map[string]any{
-						"name": "bitcoin",
-						"type": "`$OBJECT`",
-					},
-					map[string]any{
-						"name": "ethereum",
-						"type": "`$OBJECT`",
-					},
-				},
+				"fields": []any{},
 				"name": "simple",
 				"op": map[string]any{
 					"load": map[string]any{

@@ -5,8 +5,6 @@ export interface GeneralLoadMatch {
     gecko_says?: string;
 }
 export interface Simple {
-    bitcoin?: Record<string, any>;
-    ethereum?: Record<string, any>;
 }
 export interface SimpleLoadMatch {
     ids: string;

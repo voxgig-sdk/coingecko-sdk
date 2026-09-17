@@ -175,13 +175,6 @@ Return a copy of the entity options.
 const simple = client.Simple()
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `bitcoin` | `Record<string, any>` | No |  |
-| `ethereum` | `Record<string, any>` | No |  |
-
 ### Actions
 
 This entity exposes custom API actions in addition to the standard

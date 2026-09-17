@@ -5,7 +5,7 @@ declare(strict_types=1);
 
 class CoingeckoPrepareAuth
 {
-    private const HEADER_AUTH = 'authorization';
+    private const HEADER_AUTH = 'x-cg-demo-api-key';
     private const OPTION_APIKEY = 'apikey';
     private const NOT_FOUND = '__NOTFOUND__';
 
