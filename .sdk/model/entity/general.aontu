@@ -1,0 +1,45 @@
+# Entity: general
+
+main: kit: entity: general: {
+
+  alias: field: {}
+
+  fields: {
+    gecko_says: {
+      h: "Gecko Says"
+      n: "gecko_says"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  name: "general"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /ping"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/ping"
+          s: [
+            {
+              lit: "ping"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

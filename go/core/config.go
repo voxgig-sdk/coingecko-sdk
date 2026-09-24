@@ -96,6 +96,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "gecko_says",
+						"title": "Gecko Says",
 						"type": "`$STRING`",
 					},
 				},
@@ -106,7 +107,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/ping",
@@ -115,14 +115,16 @@ func MakeConfig() map[string]any {
 										"lit": "ping",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"ping",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"ping",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -140,60 +142,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": "bitcoin,ethereum",
-											"kind": "query",
-											"name": "ids",
-											"orig": "ids",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": false,
-											"kind": "query",
-											"name": "include_24hr_change",
-											"orig": "include_24hr_change",
-											"type": "`$BOOLEAN`",
-										},
-										map[string]any{
-											"example": false,
-											"kind": "query",
-											"name": "include_24hr_vol",
-											"orig": "include_24hr_vol",
-											"type": "`$BOOLEAN`",
-										},
-										map[string]any{
-											"example": false,
-											"kind": "query",
-											"name": "include_last_updated_at",
-											"orig": "include_last_updated_at",
-											"type": "`$BOOLEAN`",
-										},
-										map[string]any{
-											"example": false,
-											"kind": "query",
-											"name": "include_market_cap",
-											"orig": "include_market_cap",
-											"type": "`$BOOLEAN`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "precision",
-											"orig": "precision",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": "usd,eur",
-											"kind": "query",
-											"name": "vs_currency",
-											"orig": "vs_currency",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/simple/price",
@@ -203,6 +151,69 @@ func MakeConfig() map[string]any {
 									},
 									map[string]any{
 										"lit": "price",
+									},
+								},
+								"parts": []any{
+									"simple",
+									"price",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "ids",
+											"orig": "ids",
+											"type": "`$STRING`",
+											"kind": "query",
+											"reqd": true,
+											"example": "bitcoin,ethereum",
+										},
+										map[string]any{
+											"name": "include_24hr_change",
+											"orig": "include_24hr_change",
+											"type": "`$BOOLEAN`",
+											"kind": "query",
+											"example": false,
+										},
+										map[string]any{
+											"name": "include_24hr_vol",
+											"orig": "include_24hr_vol",
+											"type": "`$BOOLEAN`",
+											"kind": "query",
+											"example": false,
+										},
+										map[string]any{
+											"name": "include_last_updated_at",
+											"orig": "include_last_updated_at",
+											"type": "`$BOOLEAN`",
+											"kind": "query",
+											"example": false,
+										},
+										map[string]any{
+											"name": "include_market_cap",
+											"orig": "include_market_cap",
+											"type": "`$BOOLEAN`",
+											"kind": "query",
+											"example": false,
+										},
+										map[string]any{
+											"name": "precision",
+											"orig": "precision",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "vs_currency",
+											"orig": "vs_currency",
+											"type": "`$STRING`",
+											"kind": "query",
+											"reqd": true,
+											"example": "usd,eur",
+										},
 									},
 								},
 								"select": map[string]any{
@@ -216,14 +227,6 @@ func MakeConfig() map[string]any {
 										"precision",
 										"vs_currency",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"simple",
-									"price",
 								},
 							},
 						},

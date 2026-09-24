@@ -11,19 +11,12 @@ const FEATURE_CLASS = {
     test: TestFeature_1.TestFeature,
     timeout: TimeoutFeature_1.TimeoutFeature,
 };
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS = {};
 exports.FEATURE_PLUGINS = FEATURE_PLUGINS;
 class Config {
     makeFeature(fn) {
         const fc = FEATURE_CLASS[fn];
         const fi = new fc();
-        // TODO: errors etc
         return fi;
     }
     // False for a feature added at runtime via options.extend (station's
@@ -119,6 +112,7 @@ class Config {
             "fields": [
                 {
                     "name": "gecko_says",
+                    "title": "Gecko Says",
                     "type": "`$STRING`"
                 }
             ],
@@ -129,7 +123,6 @@ class Config {
                     "name": "load",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "GET",
                             "orig": "/ping",
@@ -138,14 +131,16 @@ class Config {
                                     "lit": "ping"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "ping"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "ping"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -163,60 +158,6 @@ class Config {
                     "name": "load",
                     "points": [
                         {
-                            "args": {
-                                "query": [
-                                    {
-                                        "example": "bitcoin,ethereum",
-                                        "kind": "query",
-                                        "name": "ids",
-                                        "orig": "ids",
-                                        "reqd": true,
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "example": false,
-                                        "kind": "query",
-                                        "name": "include_24hr_change",
-                                        "orig": "include_24hr_change",
-                                        "type": "`$BOOLEAN`"
-                                    },
-                                    {
-                                        "example": false,
-                                        "kind": "query",
-                                        "name": "include_24hr_vol",
-                                        "orig": "include_24hr_vol",
-                                        "type": "`$BOOLEAN`"
-                                    },
-                                    {
-                                        "example": false,
-                                        "kind": "query",
-                                        "name": "include_last_updated_at",
-                                        "orig": "include_last_updated_at",
-                                        "type": "`$BOOLEAN`"
-                                    },
-                                    {
-                                        "example": false,
-                                        "kind": "query",
-                                        "name": "include_market_cap",
-                                        "orig": "include_market_cap",
-                                        "type": "`$BOOLEAN`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "precision",
-                                        "orig": "precision",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "example": "usd,eur",
-                                        "kind": "query",
-                                        "name": "vs_currency",
-                                        "orig": "vs_currency",
-                                        "reqd": true,
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/simple/price",
@@ -228,6 +169,69 @@ class Config {
                                     "lit": "price"
                                 }
                             ],
+                            "parts": [
+                                "simple",
+                                "price"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {
+                                "query": [
+                                    {
+                                        "name": "ids",
+                                        "orig": "ids",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "reqd": true,
+                                        "example": "bitcoin,ethereum"
+                                    },
+                                    {
+                                        "name": "include_24hr_change",
+                                        "orig": "include_24hr_change",
+                                        "type": "`$BOOLEAN`",
+                                        "kind": "query",
+                                        "example": false
+                                    },
+                                    {
+                                        "name": "include_24hr_vol",
+                                        "orig": "include_24hr_vol",
+                                        "type": "`$BOOLEAN`",
+                                        "kind": "query",
+                                        "example": false
+                                    },
+                                    {
+                                        "name": "include_last_updated_at",
+                                        "orig": "include_last_updated_at",
+                                        "type": "`$BOOLEAN`",
+                                        "kind": "query",
+                                        "example": false
+                                    },
+                                    {
+                                        "name": "include_market_cap",
+                                        "orig": "include_market_cap",
+                                        "type": "`$BOOLEAN`",
+                                        "kind": "query",
+                                        "example": false
+                                    },
+                                    {
+                                        "name": "precision",
+                                        "orig": "precision",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "vs_currency",
+                                        "orig": "vs_currency",
+                                        "type": "`$STRING`",
+                                        "kind": "query",
+                                        "reqd": true,
+                                        "example": "usd,eur"
+                                    }
+                                ]
+                            },
                             "select": {
                                 "$action": "price",
                                 "exist": [
@@ -239,15 +243,7 @@ class Config {
                                     "precision",
                                     "vs_currency"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body`"
-                            },
-                            "parts": [
-                                "simple",
-                                "price"
-                            ]
+                            }
                         }
                     ]
                 }

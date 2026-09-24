@@ -24,20 +24,87 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "general": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "gecko_says",
-              "req": false,
-              "type": "`$STRING`"
+          "fields": {
+            "gecko_says": {
+              "a": true,
+              "h": "Gecko Says",
+              "n": "gecko_says",
+              "r": false,
+              "t": "`$STRING`"
             }
-          ],
+          },
           "name": "general",
           "op": {
             "load": {
@@ -45,24 +112,24 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /ping",
-                    "json": "{\"operationId\":\"ping\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"gecko_says\":{\"example\":\"(V3) To the Moon!\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"API server is alive\"}},\"securitySchemes\":{\"ApiKeyAuth\":{\"description\":\"Optional API key for higher rate limits (Pro accounts)\",\"in\":\"header\",\"name\":\"x-cg-demo-api-key\",\"type\":\"apiKey\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/ping",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/ping",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "ping"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -79,7 +146,7 @@
           "alias": {
             "field": {}
           },
-          "fields": [],
+          "fields": {},
           "name": "simple",
           "op": {
             "load": {
@@ -87,91 +154,82 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /simple/price",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": "bitcoin,ethereum",
-                        "kind": "query",
-                        "name": "ids",
-                        "orig": "ids",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "bitcoin,ethereum",
+                        "k": "query",
+                        "n": "ids",
+                        "or": "ids",
+                        "r": true,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": false,
-                        "kind": "query",
-                        "name": "include_24hr_change",
-                        "orig": "include_24hr_change",
-                        "reqd": false,
-                        "type": "`$BOOLEAN`"
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "include_24hr_change",
+                        "or": "include_24hr_change",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
                       },
                       {
-                        "active": true,
-                        "example": false,
-                        "kind": "query",
-                        "name": "include_24hr_vol",
-                        "orig": "include_24hr_vol",
-                        "reqd": false,
-                        "type": "`$BOOLEAN`"
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "include_24hr_vol",
+                        "or": "include_24hr_vol",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
                       },
                       {
-                        "active": true,
-                        "example": false,
-                        "kind": "query",
-                        "name": "include_last_updated_at",
-                        "orig": "include_last_updated_at",
-                        "reqd": false,
-                        "type": "`$BOOLEAN`"
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "include_last_updated_at",
+                        "or": "include_last_updated_at",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
                       },
                       {
-                        "active": true,
-                        "example": false,
-                        "kind": "query",
-                        "name": "include_market_cap",
-                        "orig": "include_market_cap",
-                        "reqd": false,
-                        "type": "`$BOOLEAN`"
+                        "a": true,
+                        "ex": false,
+                        "k": "query",
+                        "n": "include_market_cap",
+                        "or": "include_market_cap",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "precision",
-                        "orig": "precision",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "precision",
+                        "or": "precision",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": "usd,eur",
-                        "kind": "query",
-                        "name": "vs_currency",
-                        "orig": "vs_currency",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "usd,eur",
+                        "k": "query",
+                        "n": "vs_currency",
+                        "or": "vs_currency",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /simple/price",
-                    "json": "{\"operationId\":\"getSimplePrice\",\"parameters\":[{\"description\":\"ID of coins, comma-separated if querying more than 1 coin (e.g. bitcoin,ethereum)\",\"example\":\"bitcoin,ethereum\",\"in\":\"query\",\"name\":\"ids\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Target currency of market data, comma-separated if querying more than 1 currency (e.g. usd,eur)\",\"example\":\"usd,eur\",\"in\":\"query\",\"name\":\"vs_currencies\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"Include market cap in response\",\"in\":\"query\",\"name\":\"include_market_cap\",\"required\":false,\"schema\":{\"default\":false,\"type\":\"boolean\"}},{\"description\":\"Include 24hr volume in response\",\"in\":\"query\",\"name\":\"include_24hr_vol\",\"required\":false,\"schema\":{\"default\":false,\"type\":\"boolean\"}},{\"description\":\"Include 24hr price change in response\",\"in\":\"query\",\"name\":\"include_24hr_change\",\"required\":false,\"schema\":{\"default\":false,\"type\":\"boolean\"}},{\"description\":\"Include last updated timestamp in response\",\"in\":\"query\",\"name\":\"include_last_updated_at\",\"required\":false,\"schema\":{\"default\":false,\"type\":\"boolean\"}},{\"description\":\"Decimal precision for price values\",\"in\":\"query\",\"name\":\"precision\",\"required\":false,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"bitcoin\":{\"eur\":42000,\"last_updated_at\":1640000000,\"usd\":45000,\"usd_24h_change\":2.5,\"usd_24h_vol\":35000000000,\"usd_market_cap\":850000000000},\"ethereum\":{\"eur\":3200,\"last_updated_at\":1640000000,\"usd\":3500,\"usd_24h_change\":1.8,\"usd_24h_vol\":18000000000,\"usd_market_cap\":420000000000}},\"schema\":{\"additionalProperties\":{\"additionalProperties\":{\"type\":\"number\"},\"type\":\"object\"},\"type\":\"object\"}}},\"description\":\"Successful response with cryptocurrency prices\"},\"400\":{\"description\":\"Bad request - invalid parameters\"},\"429\":{\"description\":\"Rate limit exceeded\"}},\"securitySchemes\":{\"ApiKeyAuth\":{\"description\":\"Optional API key for higher rate limits (Pro accounts)\",\"in\":\"header\",\"name\":\"x-cg-demo-api-key\",\"type\":\"apiKey\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/simple/price",
-                  "segments": [
-                    {
-                      "lit": "simple"
-                    },
-                    {
-                      "lit": "price"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/simple/price",
+                  "q": {
                     "$action": "price",
                     "exist": [
                       "ids",
@@ -183,7 +241,16 @@
                       "vs_currency"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "simple"
+                    },
+                    {
+                      "lit": "price"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -612,17 +679,17 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "general_ref01",
                 "srcdatavar": "general_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -642,17 +709,17 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "simple_ref01",
                 "srcdatavar": "simple_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {

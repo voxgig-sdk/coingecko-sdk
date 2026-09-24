@@ -25,38 +25,8 @@
   "requests": {
     "GET /ping": {
       "provenance": "operation-contract",
-      "contract": {
-        "operationId": "ping",
-        "parameters": [],
-        "protocol": "http",
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "gecko_says": {
-                      "example": "(V3) To the Moon!",
-                      "type": "string"
-                    }
-                  },
-                  "type": "object"
-                }
-              }
-            },
-            "description": "API server is alive"
-          }
-        },
-        "securitySchemes": {
-          "ApiKeyAuth": {
-            "description": "Optional API key for higher rate limits (Pro accounts)",
-            "in": "header",
-            "name": "x-cg-demo-api-key",
-            "type": "apiKey"
-          }
-        },
-        "securitySource": "unspecified"
-      }
+      "version": 2,
+      "source": "openapi3"
     }
   }
 }

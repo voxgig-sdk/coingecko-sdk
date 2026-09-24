@@ -25,10 +25,6 @@ import {
 } from '../../utility'
 
 
-// AFTER the imports on purpose: TypeScript hoists `import` above any
-// statement in the emitted CommonJS, so a loader placed above them would
-// run only after every imported module had already been evaluated - and
-// anything reading process.env at module scope would miss these values.
 loadEnvLocal(__dirname + '/../../../.env.local')
 
 
@@ -55,7 +51,7 @@ describe('GeneralEntity', async () => {
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":[{"active":true,"name":"gecko_says","req":false,"type":"`$STRING`","index$":0}],"name":"general","op":{"load":{"input":"data","name":"load","points":[{"active":true,"args":{},"contract":{"id":"GET /ping","json":"{\"operationId\":\"ping\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"gecko_says\":{\"example\":\"(V3) To the Moon!\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"API server is alive\"}},\"securitySchemes\":{\"ApiKeyAuth\":{\"description\":\"Optional API key for higher rate limits (Pro accounts)\",\"in\":\"header\",\"name\":\"x-cg-demo-api-key\",\"type\":\"apiKey\"}},\"securitySource\":\"unspecified\"}","source":"openapi3","version":1},"kind":"http","method":"GET","orig":"/ping","segments":[{"lit":"ping"}],"select":{},"transform":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"general","name__orig":"general","Name":"General","name_":"general","name-":"general","NAME":"GENERAL","index$":0}, {"active":true,"entity":"general","key$":"BasicGeneralFlow","kind":"basic","name":"BasicGeneralFlow","param":{},"step":[{"active":true,"data":{},"input":{"ref":"general_ref01","srcdatavar":"general_ref01_data","suffix":"_dt0"},"match":{},"op":"load","spec":[],"valid":[{"apply":"TextFieldMark","def":{"mark":"Mark01-general_ref01"}}],"index$":0}]}, 'General')
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"gecko_says":{"a":true,"h":"Gecko Says","n":"gecko_says","r":false,"t":"`$STRING`","key$":"gecko_says","index$":0}},"name":"general","op":{"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /ping","source":"openapi3","version":2},"g":{},"k":"http","m":"GET","o":"/ping","q":{},"r":{},"s":[{"lit":"ping"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"general","name__orig":"general","Name":"General","name_":"general","name-":"general","NAME":"GENERAL","index$":0}, {"active":true,"entity":"general","key$":"BasicGeneralFlow","kind":"basic","name":"BasicGeneralFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"general_ref01","srcdatavar":"general_ref01_data","suffix":"_dt0"},"m":{},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-general_ref01"}}],"index$":0}]}, 'General', {"GET /ping":{"protocol":"http","operationId":"ping","responses":{"200":{"description":"API server is alive","content":{"application/json":{"schema":{"type":"object","properties":{"gecko_says":{"example":"(V3) To the Moon!","key$":"gecko_says","type":"string"}},"index$":0}}}}},"parameters":[],"securitySource":"unspecified","securitySchemes":{"ApiKeyAuth":{"type":"apiKey","in":"header","name":"x-cg-demo-api-key","description":"Optional API key for higher rate limits (Pro accounts)"}}}})
     }
     const client = setup.client
     const struct = setup.struct

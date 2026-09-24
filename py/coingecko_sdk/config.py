@@ -121,6 +121,7 @@ def make_config():
         "fields": [
           {
             "name": "gecko_says",
+            "title": "Gecko Says",
             "type": "`$STRING`",
           },
         ],
@@ -131,7 +132,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/ping",
@@ -140,14 +140,16 @@ def make_config():
                     "lit": "ping",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "ping",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "ping",
-                ],
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -165,60 +167,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "query": [
-                    {
-                      "example": "bitcoin,ethereum",
-                      "kind": "query",
-                      "name": "ids",
-                      "orig": "ids",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": False,
-                      "kind": "query",
-                      "name": "include_24hr_change",
-                      "orig": "include_24hr_change",
-                      "type": "`$BOOLEAN`",
-                    },
-                    {
-                      "example": False,
-                      "kind": "query",
-                      "name": "include_24hr_vol",
-                      "orig": "include_24hr_vol",
-                      "type": "`$BOOLEAN`",
-                    },
-                    {
-                      "example": False,
-                      "kind": "query",
-                      "name": "include_last_updated_at",
-                      "orig": "include_last_updated_at",
-                      "type": "`$BOOLEAN`",
-                    },
-                    {
-                      "example": False,
-                      "kind": "query",
-                      "name": "include_market_cap",
-                      "orig": "include_market_cap",
-                      "type": "`$BOOLEAN`",
-                    },
-                    {
-                      "kind": "query",
-                      "name": "precision",
-                      "orig": "precision",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": "usd,eur",
-                      "kind": "query",
-                      "name": "vs_currency",
-                      "orig": "vs_currency",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/simple/price",
@@ -230,6 +178,69 @@ def make_config():
                     "lit": "price",
                   },
                 ],
+                "parts": [
+                  "simple",
+                  "price",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "ids",
+                      "orig": "ids",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "reqd": True,
+                      "example": "bitcoin,ethereum",
+                    },
+                    {
+                      "name": "include_24hr_change",
+                      "orig": "include_24hr_change",
+                      "type": "`$BOOLEAN`",
+                      "kind": "query",
+                      "example": False,
+                    },
+                    {
+                      "name": "include_24hr_vol",
+                      "orig": "include_24hr_vol",
+                      "type": "`$BOOLEAN`",
+                      "kind": "query",
+                      "example": False,
+                    },
+                    {
+                      "name": "include_last_updated_at",
+                      "orig": "include_last_updated_at",
+                      "type": "`$BOOLEAN`",
+                      "kind": "query",
+                      "example": False,
+                    },
+                    {
+                      "name": "include_market_cap",
+                      "orig": "include_market_cap",
+                      "type": "`$BOOLEAN`",
+                      "kind": "query",
+                      "example": False,
+                    },
+                    {
+                      "name": "precision",
+                      "orig": "precision",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "vs_currency",
+                      "orig": "vs_currency",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "reqd": True,
+                      "example": "usd,eur",
+                    },
+                  ],
+                },
                 "select": {
                   "$action": "price",
                   "exist": [
@@ -242,14 +253,6 @@ def make_config():
                     "vs_currency",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "simple",
-                  "price",
-                ],
               },
             ],
           },

@@ -1,0 +1,113 @@
+# Entity: simple
+
+main: kit: entity: simple: {
+
+  alias: field: {}
+
+  name: "simple"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /simple/price"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "bitcoin,ethereum"
+                k: "query"
+                n: "ids"
+                or: "ids"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "include_24hr_change"
+                or: "include_24hr_change"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "include_24hr_vol"
+                or: "include_24hr_vol"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "include_last_updated_at"
+                or: "include_last_updated_at"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "include_market_cap"
+                or: "include_market_cap"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "precision"
+                or: "precision"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "usd,eur"
+                k: "query"
+                n: "vs_currency"
+                or: "vs_currency"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/simple/price"
+          q: {
+            "$action": "price"
+            exist: [
+              "ids"
+              "include_24hr_change"
+              "include_24hr_vol"
+              "include_last_updated_at"
+              "include_market_cap"
+              "precision"
+              "vs_currency"
+            ]
+          }
+          s: [
+            {
+              lit: "simple"
+            }
+            {
+              lit: "price"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}
